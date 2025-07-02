@@ -1,4 +1,4 @@
-# 프로젝트 명
+# be18-1st-4team-1stPJT
 
 ## 목차
 1. [팀원](#팀원)
@@ -12,6 +12,11 @@
 7. [SQL](#SQL)
 
 ### 팀원
+| 김택곤 | 손혜원 | 윤동기 | 임승택 | 조상원 | 조용주 |
+| --- | --- | --- | --- | --- | --- |
+|     |     |     |     |     |     |
+
+
 
 ### 프로젝트 개요
 
@@ -38,12 +43,11 @@
 ### 🎬프로젝트 시나리오
 ![sys-flow.png](./image/sys-flow.png)  
 
-### 📘요구사항 명세서
-
+### [📘요구사항 명세서](https://docs.google.com/spreadsheets/d/1ywVBV67NrzWV-1znNUS8sd5j1ng35hN3S3RMZ7b0pGk/edit?gid=433577389#gid=433577389)
+![SRS.png](./image/SRS.png)  
 
 ### [📅WBS](https://docs.google.com/spreadsheets/d/1ywVBV67NrzWV-1znNUS8sd5j1ng35hN3S3RMZ7b0pGk/edit?gid=509945759#gid=509945759)
 ![WBS.png](./image/WBS.png)  
-
 
 ### ERD
 
