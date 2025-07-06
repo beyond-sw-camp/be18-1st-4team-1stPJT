@@ -1,6 +1,6 @@
-#CREATE DATABASE my_project_db;
+CREATE DATABASE beyond_project_01_db;
 
-USE my_project_db;
+USE beyond_project_01_db;
 
 DROP TABLE IF EXISTS user_diseases;
 DROP TABLE IF EXISTS user_favorites;
