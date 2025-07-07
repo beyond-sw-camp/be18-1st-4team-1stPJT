@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>ContentFilters</key>
+	<dict/>
+	<key>auto_connect</key>
+	<true/>
+	<key>data</key>
+	<dict>
+		<key>connection</key>
+		<dict>
+			<key>allowDataLocalInfile</key>
+			<integer>0</integer>
+			<key>database</key>
+			<string>disease_management</string>
+			<key>enableClearTextPlugin</key>
+			<integer>0</integer>
+			<key>host</key>
+			<string>192.168.64.3</string>
+			<key>name</key>
+			<string>beyond@192.168.64.3</string>
+			<key>rdbms_type</key>
+			<string>mysql</string>
+			<key>sslCACertFileLocation</key>
+			<string></string>
+			<key>sslCACertFileLocationEnabled</key>
+			<integer>0</integer>
+			<key>sslCertificateFileLocation</key>
+			<string></string>
+			<key>sslCertificateFileLocationEnabled</key>
+			<integer>0</integer>
+			<key>sslKeyFileLocation</key>
+			<string></string>
+			<key>sslKeyFileLocationEnabled</key>
+			<integer>0</integer>
+			<key>type</key>
+			<string>SPTCPIPConnection</string>
+			<key>useSSL</key>
+			<integer>0</integer>
+			<key>user</key>
+			<string>beyond</string>
+		</dict>
+		<key>session</key>
+		<dict>
+			<key>connectionEncoding</key>
+			<string>utf8mb4</string>
+			<key>contentFilterV2</key>
+			<dict>
+				<key>children</key>
+				<array/>
+				<key>filterClass</key>
+				<string>groupNode</string>
+				<key>isConjunction</key>
+				<true/>
+			</dict>
+			<key>contentPageNumber</key>
+			<integer>1</integer>
+			<key>contentSelection</key>
+			<data>
+			YnBsaXN0MDDUAQIDBAUGBwpYJHZlcnNpb25ZJGFyY2hpdmVyVCR0
+			b3BYJG9iamVjdHMSAAGGoF8QD05TS2V5ZWRBcmNoaXZlctEICVRk
+			YXRhgAGtCwwZGhscHSEoLDA0OFUkbnVsbNMNDg8QFBhXTlMua2V5
+			c1pOUy5vYmplY3RzViRjbGFzc6MREhOAAoADgASjFRYXgAWABoAI
+			gAxUdHlwZVRyb3dzVGtleXNfECZTZWxlY3Rpb25EZXRhaWxUeXBl
+			UHJpbWFyeUtleWVkRGV0YWlsc9MNDg8eHyCgoIAH0iIjJCVaJGNs
+			YXNzbmFtZVgkY2xhc3Nlc18QE05TTXV0YWJsZURpY3Rpb25hcnmj
+			JCYnXE5TRGljdGlvbmFyeVhOU09iamVjdNIODykroSqACYAL0g8t
+			Li9ZTlMuc3RyaW5ngApfEBB1c2VyX2Zhdm9yaXRlX2lk0iIjMTJf
+			EA9OU011dGFibGVTdHJpbmejMTMnWE5TU3RyaW5n0iIjNTZeTlNN
+			dXRhYmxlQXJyYXmjNTcnV05TQXJyYXnSIiMmOaImJwAIABEAGgAk
+			ACkAMgA3AEkATABRAFMAYQBnAG4AdgCBAIgAjACOAJAAkgCWAJgA
+			mgCcAJ4AowCoAK0A1gDdAN4A3wDhAOYA8QD6ARABFAEhASoBLwEx
+			ATMBNQE6AUQBRgFZAV4BcAF0AX0BggGRAZUBnQGiAAAAAAAAAgEA
+			AAAAAAAAOgAAAAAAAAAAAAAAAAAAAaU=
+			</data>
+			<key>contentSortColIsAsc</key>
+			<true/>
+			<key>contentViewport</key>
+			<string>{{0, -28}, {693, 501}}</string>
+			<key>isToolbarVisible</key>
+			<true/>
+			<key>queries</key>
+			<string>-- 회원가입 성공
+INSERT INTO users (user_id, user_name, user_pw, user_email, user_nickname, user_type)
+    VALUES (DEFAULT, 'test_user', '5678', 'test_user@example.com', 'tester', DEFAULT);
+
+-- 이메일/닉네임 중복 검사
+-- Expect failure due to UNIQUE constraint
+    INSERT INTO users (user_id, user_name, user_pw, user_email, user_nickname, user_type)
+    VALUES (UUID(), 'test_user', '5678', 'test_user@example.com', 'tester', 'user');
+
+-- 회원 탈퇴 처리
+UPDATE users SET is_deleted = TRUE, delete_date = NOW() WHERE user_email = 'test_user@example.com';
+
+-- 관리자 계정 구분
+SELECT * FROM users WHERE user_type = 'admin';
+
+-- 유저가 질병 선택 시
+INSERT INTO user_diseases (user_id, diseases_id) 
+    VALUES ('{user_id}', 1); 
+
+-- 유저가 라이프스타일 선택 시
+INSERT INTO user_life_styles (user_id, life_style_id)
+    VALUES ('{user_id}', 2); 
+
+-- 즐겨찾기 기능
+INSERT INTO user_favorites (user_id, type, item_id)
+    VALUES ('{user_id}', 'product', 1); -- item_id is a product_id
+
+-- 상품 등록
+INSERT INTO products (product_name, brand_name, category, enrolled_id)
+    VALUES ('Test Product', 'Brand unknown', 'Cosmetics', '{admin_id}');
+
+-- 상품-성분 매핑
+INSERT INTO product_ingredients (product_id, ingr_id, enrolled_id)
+    VALUES (1, 1, '{admin_id}');
+
+-- 성분 등록
+INSERT INTO ingredients (ingr_name, description, functionality, usage)
+    VALUES ('Niacinamide', '피부 미백', '미백 기능', '스킨케어');
+
+-- 질병 등록
+INSERT INTO diseases (disease_name, disease_info, disease_effect)
+    VALUES ('아토피', '피부 염증', '가려움, 발진');
+
+-- 성분과 질병 관계 매핑
+INSERT INTO ingredient_diseases (ingr_id, diseases_id, type)
+    VALUES (1, 1, 'bad');
+
+-- 질병에 좋은 성분 필터
+SELECT i.ingr_name
+    FROM ingredients i
+    JOIN ingredient_diseases id ON i.ingr_id = id.ingr_id
+    WHERE id.diseases_id = 1 AND id.type = 'good';
+
+-- 라이프스타일 등록
+INSERT INTO life_styles (life_style_name, enrolled_id)
+    VALUES ('비건', '{admin_id}');
+
+-- 라이프스타일에 따른 성분 추천/비추천
+INSERT INTO life_style_ingredients (life_style_id, ingr_id, type, enrolled_id)
+    VALUES (1, 1, 'good', '{admin_id}');
+
+-- 존재하지 않는 외래키 입력 테스트
+-- Expect failure: diseases_id 99999 may not exist
+    INSERT INTO user_diseases (user_id, diseases_id)
+    VALUES ('{user_id}', 99999);
+
+-- 자동 시간값 확인
+INSERT INTO users (user_id, user_name, user_pw, user_email, user_nickname, user_type)
+    VALUES (UUID(), 'time_test', 'pass', 'time_test@example.com', 'timey', 'U');
+    SELECT reg_date FROM users WHERE user_email = 'time_test@example.com';
+
+-- 트랜잭션 롤백 테스트
+START TRANSACTION;
+    INSERT INTO products (product_name, brand_name, category) VALUES ('RollbackTest', 'FailBrand', 'Test');
+    -- Expect failure: invalid foreign key
+    INSERT INTO product_ingredients (product_id, ingr_id, enrolled_id) VALUES (LAST_INSERT_ID(), 99999, '{admin_id}');
+    ROLLBACK;
+
+-- 중복 즐겨찾기 방지
+-- 시나리오: 동일한 즐겨찾기를 두 번 추가 시도하여 UNIQUE 제약 조건 확인
+    INSERT INTO user_favorites (user_id, type, item_id)
+    VALUES ('{user_id}', 'product', 1);
+
+    -- 같은 값 다시 삽입 (실패 예상)
+    INSERT INTO user_favorites (user_id, type, item_id)
+    VALUES ('{user_id}', 'product', 1);
+
+-- 성분 조회 테스트
+-- 시나리오: 위험 등급이 3 이상인 성분을 필터링하여 조회
+    SELECT * FROM ingredients
+    WHERE safety_rating IN ('3', '4', '5');
+
+-- 성분 수정 테스트
+-- 시나리오: 성분 기능 설명 업데이트 테스트
+    UPDATE ingredients
+    SET functionality = '피부 진정 및 항염 효과'
+    WHERE ingr_id = 1;
+</string>
+			<key>table</key>
+			<string>user_favorite</string>
+			<key>view</key>
+			<string>SP_VIEW_CUSTOMQUERY</string>
+			<key>windowVerticalDividerPosition</key>
+			<real>214</real>
+		</dict>
+	</dict>
+	<key>encrypted</key>
+	<false/>
+	<key>format</key>
+	<string>connection</string>
+	<key>queryFavorites</key>
+	<array/>
+	<key>rdbms_type</key>
+	<string>mysql</string>
+	<key>rdbms_version</key>
+	<string>5.5.5-10.11.13-MariaDB-0ubuntu0.24.04.1</string>
+	<key>version</key>
+	<integer>1</integer>
+</dict>
+</plist>
