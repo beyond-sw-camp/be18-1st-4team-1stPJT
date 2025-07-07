@@ -1,0 +1,413 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>ContentFilters</key>
+	<dict/>
+	<key>auto_connect</key>
+	<true/>
+	<key>data</key>
+	<dict>
+		<key>connection</key>
+		<dict>
+			<key>allowDataLocalInfile</key>
+			<integer>0</integer>
+			<key>database</key>
+			<string>disease_management</string>
+			<key>enableClearTextPlugin</key>
+			<integer>0</integer>
+			<key>host</key>
+			<string>192.168.64.3</string>
+			<key>name</key>
+			<string>beyond@192.168.64.3</string>
+			<key>rdbms_type</key>
+			<string>mysql</string>
+			<key>sslCACertFileLocation</key>
+			<string></string>
+			<key>sslCACertFileLocationEnabled</key>
+			<integer>0</integer>
+			<key>sslCertificateFileLocation</key>
+			<string></string>
+			<key>sslCertificateFileLocationEnabled</key>
+			<integer>0</integer>
+			<key>sslKeyFileLocation</key>
+			<string></string>
+			<key>sslKeyFileLocationEnabled</key>
+			<integer>0</integer>
+			<key>type</key>
+			<string>SPTCPIPConnection</string>
+			<key>useSSL</key>
+			<integer>0</integer>
+			<key>user</key>
+			<string>beyond</string>
+		</dict>
+		<key>session</key>
+		<dict>
+			<key>connectionEncoding</key>
+			<string>utf8mb4</string>
+			<key>contentFilterV2</key>
+			<dict>
+				<key>children</key>
+				<array/>
+				<key>filterClass</key>
+				<string>groupNode</string>
+				<key>isConjunction</key>
+				<true/>
+			</dict>
+			<key>contentPageNumber</key>
+			<integer>1</integer>
+			<key>contentSelection</key>
+			<data>
+			YnBsaXN0MDDUAQIDBAUGBwpYJHZlcnNpb25ZJGFyY2hpdmVyVCR0
+			b3BYJG9iamVjdHMSAAGGoF8QD05TS2V5ZWRBcmNoaXZlctEICVRk
+			YXRhgAGtCwwZGhscHSEoLDA0OFUkbnVsbNMNDg8QFBhXTlMua2V5
+			c1pOUy5vYmplY3RzViRjbGFzc6MREhOAAoADgASjFRYXgAWABoAI
+			gAxUdHlwZVRyb3dzVGtleXNfECZTZWxlY3Rpb25EZXRhaWxUeXBl
+			UHJpbWFyeUtleWVkRGV0YWlsc9MNDg8eHyCgoIAH0iIjJCVaJGNs
+			YXNzbmFtZVgkY2xhc3Nlc18QE05TTXV0YWJsZURpY3Rpb25hcnmj
+			JCYnXE5TRGljdGlvbmFyeVhOU09iamVjdNIODykroSqACYAL0g8t
+			Li9ZTlMuc3RyaW5ngApXaW5ncl9pZNIiIzEyXxAPTlNNdXRhYmxl
+			U3RyaW5nozEzJ1hOU1N0cmluZ9IiIzU2Xk5TTXV0YWJsZUFycmF5
+			ozU3J1dOU0FycmF50iIjJjmiJicACAARABoAJAApADIANwBJAEwA
+			UQBTAGEAZwBuAHYAgQCIAIwAjgCQAJIAlgCYAJoAnACeAKMAqACt
+			ANYA3QDeAN8A4QDmAPEA+gEQARQBIQEqAS8BMQEzATUBOgFEAUYB
+			TgFTAWUBaQFyAXcBhgGKAZIBlwAAAAAAAAIBAAAAAAAAADoAAAAA
+			AAAAAAAAAAAAAAGa
+			</data>
+			<key>contentSortColIsAsc</key>
+			<true/>
+			<key>contentViewport</key>
+			<string>{{0, -28}, {1255, 840}}</string>
+			<key>isToolbarVisible</key>
+			<true/>
+			<key>queries</key>
+			<string>USE disease_management;
+SELECT * FROM ingredient;
+--	INSERT ingredient data
+INSERT INTO ingredient (
+    ingr_id, ingr_name, description, functionality, `usage`, potential_risk, safety_rating,
+    reference_source, enrolled_id, reg_date, update_date
+)
+VALUES
+(DEFAULT, 'Acetaminophen', '진통, 해열 효과가 있음', '진통제', '두통, 생리통 완화', '간 손상 가능성', 'B', 'FDA', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Ibuprofen', '소염 작용이 강함', '소염진통제', '근육통, 관절염', '위장장애, 출혈', 'C', 'FDA', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Loratadine', '항히스타민제로 알레르기 완화', '항히스타민', '비염, 두드러기', '졸림, 구강건조', 'A', 'KFDA', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Vitamin C', '항산화 작용', '비타민', '면역력 증진', '과잉 복용 시 설사', 'A', '영양제협회', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Diphenhydramine', '졸음을 유발하는 항히스타민', '수면 보조', '불면증, 알레르기', '심한 졸림', 'D', '약학저널', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Pseudoephedrine', '비충혈 제거제', '코막힘 치료', '감기약', '혈압 상승', 'C', 'FDA', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Dextromethorphan', '기침 억제제', '기침 억제', '감기약', '과다 복용 시 중독', 'C', 'WHO', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Calcium Carbonate', '위산 중화 작용', '제산제', '소화불량', '신장결석 유발 가능', 'B', '건강식품협회', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Zinc Gluconate', '면역력 향상', '미네랄', '감기 예방', '메스꺼움, 위장장애', 'A', '의약품안전청', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Extract_1965', '설명 없음', '기타', '기타 용도', '알 수 없음', 'A', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Substance_4819', '설명 없음', '기타', '기타 용도', '알 수 없음', 'C', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Element_2577', '설명 없음', '기타', '기타 용도', '알 수 없음', 'B', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Molecule_1568', '설명 없음', '기타', '기타 용도', '알 수 없음', 'C', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Molecule_6798', '설명 없음', '기타', '기타 용도', '알 수 없음', 'A', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Compound_1704', '설명 없음', '기타', '기타 용도', '알 수 없음', 'C', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Compound_5116', '설명 없음', '기타', '기타 용도', '알 수 없음', 'A', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Substance_2321', '설명 없음', '기타', '기타 용도', '알 수 없음', 'C', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Substance_1660', '설명 없음', '기타', '기타 용도', '알 수 없음', 'A', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Agent_2417', '설명 없음', '기타', '기타 용도', '알 수 없음', 'C', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Compound_7074', '설명 없음', '기타', '기타 용도', '알 수 없음', 'A', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Extract_3100', '설명 없음', '기타', '기타 용도', '알 수 없음', 'C', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Element_5554', '설명 없음', '기타', '기타 용도', '알 수 없음', 'C', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Extract_4079', '설명 없음', '기타', '기타 용도', '알 수 없음', 'A', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Substance_4443', '설명 없음', '기타', '기타 용도', '알 수 없음', 'C', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Substance_3895', '설명 없음', '기타', '기타 용도', '알 수 없음', 'A', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Extract_6503', '설명 없음', '기타', '기타 용도', '알 수 없음', 'C', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Agent_3029', '설명 없음', '기타', '기타 용도', '알 수 없음', 'B', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Compound_4044', '설명 없음', '기타', '기타 용도', '알 수 없음', 'B', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Extract_9136', '설명 없음', '기타', '기타 용도', '알 수 없음', 'B', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Molecule_4354', '설명 없음', '기타', '기타 용도', '알 수 없음', 'B', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Molecule_3981', '설명 없음', '기타', '기타 용도', '알 수 없음', 'C', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Agent_3603', '설명 없음', '기타', '기타 용도', '알 수 없음', 'B', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Substance_7987', '설명 없음', '기타', '기타 용도', '알 수 없음', 'C', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Agent_9928', '설명 없음', '기타', '기타 용도', '알 수 없음', 'A', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Substance_2958', '설명 없음', '기타', '기타 용도', '알 수 없음', 'A', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Molecule_4642', '설명 없음', '기타', '기타 용도', '알 수 없음', 'A', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Element_4501', '설명 없음', '기타', '기타 용도', '알 수 없음', 'B', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Compound_9224', '설명 없음', '기타', '기타 용도', '알 수 없음', 'B', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Element_8866', '설명 없음', '기타', '기타 용도', '알 수 없음', 'A', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Extract_8147', '설명 없음', '기타', '기타 용도', '알 수 없음', 'A', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Molecule_8324', '설명 없음', '기타', '기타 용도', '알 수 없음', 'A', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Substance_1654', '설명 없음', '기타', '기타 용도', '알 수 없음', 'A', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Compound_7436', '설명 없음', '기타', '기타 용도', '알 수 없음', 'B', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Agent_8837', '설명 없음', '기타', '기타 용도', '알 수 없음', 'C', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Extract_6330', '설명 없음', '기타', '기타 용도', '알 수 없음', 'B', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Substance_3470', '설명 없음', '기타', '기타 용도', '알 수 없음', 'C', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Element_4391', '설명 없음', '기타', '기타 용도', '알 수 없음', 'B', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Element_1113', '설명 없음', '기타', '기타 용도', '알 수 없음', 'C', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Extract_2993', '설명 없음', '기타', '기타 용도', '알 수 없음', 'C', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Extract_2027', '설명 없음', '기타', '기타 용도', '알 수 없음', 'B', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Agent_6076', '설명 없음', '기타', '기타 용도', '알 수 없음', 'C', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Substance_3109', '설명 없음', '기타', '기타 용도', '알 수 없음', 'C', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Molecule_9344', '설명 없음', '기타', '기타 용도', '알 수 없음', 'B', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Compound_6076', '설명 없음', '기타', '기타 용도', '알 수 없음', 'A', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Molecule_7159', '설명 없음', '기타', '기타 용도', '알 수 없음', 'A', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Element_5143', '설명 없음', '기타', '기타 용도', '알 수 없음', 'B', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Molecule_6229', '설명 없음', '기타', '기타 용도', '알 수 없음', 'B', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Extract_5399', '설명 없음', '기타', '기타 용도', '알 수 없음', 'B', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Substance_1215', '설명 없음', '기타', '기타 용도', '알 수 없음', 'C', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Substance_3362', '설명 없음', '기타', '기타 용도', '알 수 없음', 'B', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Extract_6793', '설명 없음', '기타', '기타 용도', '알 수 없음', 'A', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Extract_3135', '설명 없음', '기타', '기타 용도', '알 수 없음', 'C', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Substance_9191', '설명 없음', '기타', '기타 용도', '알 수 없음', 'A', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Substance_7661', '설명 없음', '기타', '기타 용도', '알 수 없음', 'B', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Element_6648', '설명 없음', '기타', '기타 용도', '알 수 없음', 'A', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Extract_3633', '설명 없음', '기타', '기타 용도', '알 수 없음', 'C', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Substance_7538', '설명 없음', '기타', '기타 용도', '알 수 없음', 'A', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Agent_9349', '설명 없음', '기타', '기타 용도', '알 수 없음', 'B', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Element_8646', '설명 없음', '기타', '기타 용도', '알 수 없음', 'C', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Element_4815', '설명 없음', '기타', '기타 용도', '알 수 없음', 'C', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Substance_4535', '설명 없음', '기타', '기타 용도', '알 수 없음', 'B', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Compound_1229', '설명 없음', '기타', '기타 용도', '알 수 없음', 'C', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Molecule_6992', '설명 없음', '기타', '기타 용도', '알 수 없음', 'B', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Extract_7164', '설명 없음', '기타', '기타 용도', '알 수 없음', 'B', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Molecule_5772', '설명 없음', '기타', '기타 용도', '알 수 없음', 'B', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Element_3566', '설명 없음', '기타', '기타 용도', '알 수 없음', 'C', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Molecule_7204', '설명 없음', '기타', '기타 용도', '알 수 없음', 'C', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Molecule_9509', '설명 없음', '기타', '기타 용도', '알 수 없음', 'C', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Agent_2068', '설명 없음', '기타', '기타 용도', '알 수 없음', 'B', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Extract_4103', '설명 없음', '기타', '기타 용도', '알 수 없음', 'A', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Element_9744', '설명 없음', '기타', '기타 용도', '알 수 없음', 'C', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Compound_4398', '설명 없음', '기타', '기타 용도', '알 수 없음', 'A', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Extract_6295', '설명 없음', '기타', '기타 용도', '알 수 없음', 'A', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Compound_9160', '설명 없음', '기타', '기타 용도', '알 수 없음', 'A', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Molecule_7285', '설명 없음', '기타', '기타 용도', '알 수 없음', 'C', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Compound_7315', '설명 없음', '기타', '기타 용도', '알 수 없음', 'B', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Element_8248', '설명 없음', '기타', '기타 용도', '알 수 없음', 'B', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Molecule_5551', '설명 없음', '기타', '기타 용도', '알 수 없음', 'A', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Substance_4807', '설명 없음', '기타', '기타 용도', '알 수 없음', 'A', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Substance_2259', '설명 없음', '기타', '기타 용도', '알 수 없음', 'C', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Element_5734', '설명 없음', '기타', '기타 용도', '알 수 없음', 'A', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Agent_4318', '설명 없음', '기타', '기타 용도', '알 수 없음', 'A', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Substance_9264', '설명 없음', '기타', '기타 용도', '알 수 없음', 'C', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Extract_1453', '설명 없음', '기타', '기타 용도', '알 수 없음', 'A', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Molecule_2939', '설명 없음', '기타', '기타 용도', '알 수 없음', 'C', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Extract_4914', '설명 없음', '기타', '기타 용도', '알 수 없음', 'A', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Compound_1398', '설명 없음', '기타', '기타 용도', '알 수 없음', 'B', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Agent_4798', '설명 없음', '기타', '기타 용도', '알 수 없음', 'C', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Compound_6158', '설명 없음', '기타', '기타 용도', '알 수 없음', 'B', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Substance_1298', '설명 없음', '기타', '기타 용도', '알 수 없음', 'A', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Compound_8825', '설명 없음', '기타', '기타 용도', '알 수 없음', 'B', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Molecule_4001', '설명 없음', '기타', '기타 용도', '알 수 없음', 'C', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Compound_6586', '설명 없음', '기타', '기타 용도', '알 수 없음', 'C', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Compound_4893', '설명 없음', '기타', '기타 용도', '알 수 없음', 'B', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Compound_9334', '설명 없음', '기타', '기타 용도', '알 수 없음', 'C', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Agent_3350', '설명 없음', '기타', '기타 용도', '알 수 없음', 'B', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Agent_6303', '설명 없음', '기타', '기타 용도', '알 수 없음', 'A', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Element_7856', '설명 없음', '기타', '기타 용도', '알 수 없음', 'A', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Substance_1843', '설명 없음', '기타', '기타 용도', '알 수 없음', 'C', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Molecule_9680', '설명 없음', '기타', '기타 용도', '알 수 없음', 'B', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Compound_5056', '설명 없음', '기타', '기타 용도', '알 수 없음', 'B', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Agent_5922', '설명 없음', '기타', '기타 용도', '알 수 없음', 'A', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Element_7062', '설명 없음', '기타', '기타 용도', '알 수 없음', 'A', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Molecule_6754', '설명 없음', '기타', '기타 용도', '알 수 없음', 'C', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Molecule_2010', '설명 없음', '기타', '기타 용도', '알 수 없음', 'A', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Compound_2801', '설명 없음', '기타', '기타 용도', '알 수 없음', 'A', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Molecule_2379', '설명 없음', '기타', '기타 용도', '알 수 없음', 'C', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Molecule_7050', '설명 없음', '기타', '기타 용도', '알 수 없음', 'C', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Element_7054', '설명 없음', '기타', '기타 용도', '알 수 없음', 'A', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Compound_9279', '설명 없음', '기타', '기타 용도', '알 수 없음', 'A', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Substance_7195', '설명 없음', '기타', '기타 용도', '알 수 없음', 'A', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Molecule_6016', '설명 없음', '기타', '기타 용도', '알 수 없음', 'C', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Agent_8968', '설명 없음', '기타', '기타 용도', '알 수 없음', 'C', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Extract_5262', '설명 없음', '기타', '기타 용도', '알 수 없음', 'C', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Element_3296', '설명 없음', '기타', '기타 용도', '알 수 없음', 'C', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Agent_3623', '설명 없음', '기타', '기타 용도', '알 수 없음', 'A', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Agent_6675', '설명 없음', '기타', '기타 용도', '알 수 없음', 'B', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Molecule_9589', '설명 없음', '기타', '기타 용도', '알 수 없음', 'A', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Substance_5061', '설명 없음', '기타', '기타 용도', '알 수 없음', 'A', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Agent_9665', '설명 없음', '기타', '기타 용도', '알 수 없음', 'C', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Compound_6323', '설명 없음', '기타', '기타 용도', '알 수 없음', 'A', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Substance_4189', '설명 없음', '기타', '기타 용도', '알 수 없음', 'A', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Agent_9278', '설명 없음', '기타', '기타 용도', '알 수 없음', 'C', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Compound_4079', '설명 없음', '기타', '기타 용도', '알 수 없음', 'C', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Element_4277', '설명 없음', '기타', '기타 용도', '알 수 없음', 'C', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Substance_6251', '설명 없음', '기타', '기타 용도', '알 수 없음', 'A', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Element_5199', '설명 없음', '기타', '기타 용도', '알 수 없음', 'B', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Substance_4587', '설명 없음', '기타', '기타 용도', '알 수 없음', 'B', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Molecule_3864', '설명 없음', '기타', '기타 용도', '알 수 없음', 'C', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Compound_1491', '설명 없음', '기타', '기타 용도', '알 수 없음', 'C', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Agent_4338', '설명 없음', '기타', '기타 용도', '알 수 없음', 'B', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Extract_2327', '설명 없음', '기타', '기타 용도', '알 수 없음', 'B', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Substance_1874', '설명 없음', '기타', '기타 용도', '알 수 없음', 'A', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Compound_7915', '설명 없음', '기타', '기타 용도', '알 수 없음', 'C', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Agent_1949', '설명 없음', '기타', '기타 용도', '알 수 없음', 'B', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Agent_6411', '설명 없음', '기타', '기타 용도', '알 수 없음', 'B', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Agent_5206', '설명 없음', '기타', '기타 용도', '알 수 없음', 'B', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Agent_8508', '설명 없음', '기타', '기타 용도', '알 수 없음', 'C', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Compound_3711', '설명 없음', '기타', '기타 용도', '알 수 없음', 'A', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Element_1264', '설명 없음', '기타', '기타 용도', '알 수 없음', 'B', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Element_6567', '설명 없음', '기타', '기타 용도', '알 수 없음', 'A', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Molecule_4928', '설명 없음', '기타', '기타 용도', '알 수 없음', 'A', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Agent_2348', '설명 없음', '기타', '기타 용도', '알 수 없음', 'C', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Element_5401', '설명 없음', '기타', '기타 용도', '알 수 없음', 'C', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Substance_4866', '설명 없음', '기타', '기타 용도', '알 수 없음', 'C', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Substance_5023', '설명 없음', '기타', '기타 용도', '알 수 없음', 'A', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Agent_4741', '설명 없음', '기타', '기타 용도', '알 수 없음', 'C', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Extract_9936', '설명 없음', '기타', '기타 용도', '알 수 없음', 'B', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Extract_3843', '설명 없음', '기타', '기타 용도', '알 수 없음', 'C', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Compound_2638', '설명 없음', '기타', '기타 용도', '알 수 없음', 'C', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Extract_1357', '설명 없음', '기타', '기타 용도', '알 수 없음', 'A', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Agent_8758', '설명 없음', '기타', '기타 용도', '알 수 없음', 'C', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Element_4394', '설명 없음', '기타', '기타 용도', '알 수 없음', 'C', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Extract_6769', '설명 없음', '기타', '기타 용도', '알 수 없음', 'A', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Agent_4783', '설명 없음', '기타', '기타 용도', '알 수 없음', 'A', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Element_5043', '설명 없음', '기타', '기타 용도', '알 수 없음', 'A', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Extract_6457', '설명 없음', '기타', '기타 용도', '알 수 없음', 'B', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Agent_5350', '설명 없음', '기타', '기타 용도', '알 수 없음', 'A', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Agent_1069', '설명 없음', '기타', '기타 용도', '알 수 없음', 'C', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Element_4778', '설명 없음', '기타', '기타 용도', '알 수 없음', 'B', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Element_5957', '설명 없음', '기타', '기타 용도', '알 수 없음', 'A', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Molecule_9128', '설명 없음', '기타', '기타 용도', '알 수 없음', 'C', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Compound_8293', '설명 없음', '기타', '기타 용도', '알 수 없음', 'C', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Element_4563', '설명 없음', '기타', '기타 용도', '알 수 없음', 'A', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Molecule_1349', '설명 없음', '기타', '기타 용도', '알 수 없음', 'C', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Compound_6305', '설명 없음', '기타', '기타 용도', '알 수 없음', 'B', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Element_5689', '설명 없음', '기타', '기타 용도', '알 수 없음', 'C', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Substance_2772', '설명 없음', '기타', '기타 용도', '알 수 없음', 'B', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Molecule_5892', '설명 없음', '기타', '기타 용도', '알 수 없음', 'C', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Element_2280', '설명 없음', '기타', '기타 용도', '알 수 없음', 'A', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Compound_1262', '설명 없음', '기타', '기타 용도', '알 수 없음', 'C', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Agent_2697', '설명 없음', '기타', '기타 용도', '알 수 없음', 'C', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Substance_6466', '설명 없음', '기타', '기타 용도', '알 수 없음', 'C', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Agent_7495', '설명 없음', '기타', '기타 용도', '알 수 없음', 'B', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Agent_6016', '설명 없음', '기타', '기타 용도', '알 수 없음', 'A', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Element_2578', '설명 없음', '기타', '기타 용도', '알 수 없음', 'A', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Compound_4646', '설명 없음', '기타', '기타 용도', '알 수 없음', 'A', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Molecule_5129', '설명 없음', '기타', '기타 용도', '알 수 없음', 'A', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Substance_1568', '설명 없음', '기타', '기타 용도', '알 수 없음', 'A', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Substance_2754', '설명 없음', '기타', '기타 용도', '알 수 없음', 'B', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Molecule_6202', '설명 없음', '기타', '기타 용도', '알 수 없음', 'B', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Agent_1036', '설명 없음', '기타', '기타 용도', '알 수 없음', 'A', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Element_8704', '설명 없음', '기타', '기타 용도', '알 수 없음', 'A', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Element_8048', '설명 없음', '기타', '기타 용도', '알 수 없음', 'A', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Compound_6155', '설명 없음', '기타', '기타 용도', '알 수 없음', 'C', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Element_5588', '설명 없음', '기타', '기타 용도', '알 수 없음', 'B', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Molecule_2141', '설명 없음', '기타', '기타 용도', '알 수 없음', 'A', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Agent_9078', '설명 없음', '기타', '기타 용도', '알 수 없음', 'A', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Extract_6615', '설명 없음', '기타', '기타 용도', '알 수 없음', 'B', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Agent_1891', '설명 없음', '기타', '기타 용도', '알 수 없음', 'A', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Substance_7658', '설명 없음', '기타', '기타 용도', '알 수 없음', 'A', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Agent_5498', '설명 없음', '기타', '기타 용도', '알 수 없음', 'A', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Molecule_3849', '설명 없음', '기타', '기타 용도', '알 수 없음', 'C', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Agent_4640', '설명 없음', '기타', '기타 용도', '알 수 없음', 'C', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Molecule_9779', '설명 없음', '기타', '기타 용도', '알 수 없음', 'A', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Extract_3191', '설명 없음', '기타', '기타 용도', '알 수 없음', 'A', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Substance_6182', '설명 없음', '기타', '기타 용도', '알 수 없음', 'B', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Substance_6520', '설명 없음', '기타', '기타 용도', '알 수 없음', 'A', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Compound_2788', '설명 없음', '기타', '기타 용도', '알 수 없음', 'C', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Substance_7694', '설명 없음', '기타', '기타 용도', '알 수 없음', 'A', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Molecule_3670', '설명 없음', '기타', '기타 용도', '알 수 없음', 'B', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Agent_1120', '설명 없음', '기타', '기타 용도', '알 수 없음', 'A', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Agent_7564', '설명 없음', '기타', '기타 용도', '알 수 없음', 'C', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Extract_4071', '설명 없음', '기타', '기타 용도', '알 수 없음', 'B', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Molecule_3614', '설명 없음', '기타', '기타 용도', '알 수 없음', 'B', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Substance_1398', '설명 없음', '기타', '기타 용도', '알 수 없음', 'B', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Element_8178', '설명 없음', '기타', '기타 용도', '알 수 없음', 'C', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Agent_7486', '설명 없음', '기타', '기타 용도', '알 수 없음', 'B', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Extract_1376', '설명 없음', '기타', '기타 용도', '알 수 없음', 'B', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Compound_8804', '설명 없음', '기타', '기타 용도', '알 수 없음', 'A', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Molecule_9869', '설명 없음', '기타', '기타 용도', '알 수 없음', 'A', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Compound_6923', '설명 없음', '기타', '기타 용도', '알 수 없음', 'A', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Compound_3618', '설명 없음', '기타', '기타 용도', '알 수 없음', 'B', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Molecule_1711', '설명 없음', '기타', '기타 용도', '알 수 없음', 'C', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Substance_2258', '설명 없음', '기타', '기타 용도', '알 수 없음', 'C', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Element_3237', '설명 없음', '기타', '기타 용도', '알 수 없음', 'C', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Molecule_4268', '설명 없음', '기타', '기타 용도', '알 수 없음', 'B', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Agent_2557', '설명 없음', '기타', '기타 용도', '알 수 없음', 'A', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Element_1091', '설명 없음', '기타', '기타 용도', '알 수 없음', 'C', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Element_1546', '설명 없음', '기타', '기타 용도', '알 수 없음', 'C', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Molecule_5733', '설명 없음', '기타', '기타 용도', '알 수 없음', 'A', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Element_4078', '설명 없음', '기타', '기타 용도', '알 수 없음', 'C', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Extract_7171', '설명 없음', '기타', '기타 용도', '알 수 없음', 'A', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Extract_8340', '설명 없음', '기타', '기타 용도', '알 수 없음', 'B', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Extract_7313', '설명 없음', '기타', '기타 용도', '알 수 없음', 'C', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Element_3425', '설명 없음', '기타', '기타 용도', '알 수 없음', 'C', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Element_4768', '설명 없음', '기타', '기타 용도', '알 수 없음', 'C', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Compound_4753', '설명 없음', '기타', '기타 용도', '알 수 없음', 'C', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Element_3741', '설명 없음', '기타', '기타 용도', '알 수 없음', 'A', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Agent_9040', '설명 없음', '기타', '기타 용도', '알 수 없음', 'B', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Substance_8470', '설명 없음', '기타', '기타 용도', '알 수 없음', 'C', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Extract_4313', '설명 없음', '기타', '기타 용도', '알 수 없음', 'C', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Element_8220', '설명 없음', '기타', '기타 용도', '알 수 없음', 'C', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Molecule_9610', '설명 없음', '기타', '기타 용도', '알 수 없음', 'C', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Molecule_4771', '설명 없음', '기타', '기타 용도', '알 수 없음', 'C', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Extract_2048', '설명 없음', '기타', '기타 용도', '알 수 없음', 'A', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Agent_2183', '설명 없음', '기타', '기타 용도', '알 수 없음', 'C', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Compound_6067', '설명 없음', '기타', '기타 용도', '알 수 없음', 'A', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Molecule_5492', '설명 없음', '기타', '기타 용도', '알 수 없음', 'C', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Substance_2716', '설명 없음', '기타', '기타 용도', '알 수 없음', 'B', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Extract_9808', '설명 없음', '기타', '기타 용도', '알 수 없음', 'A', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Extract_8944', '설명 없음', '기타', '기타 용도', '알 수 없음', 'C', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Agent_1201', '설명 없음', '기타', '기타 용도', '알 수 없음', 'C', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Agent_5374', '설명 없음', '기타', '기타 용도', '알 수 없음', 'A', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Extract_3332', '설명 없음', '기타', '기타 용도', '알 수 없음', 'A', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Molecule_3651', '설명 없음', '기타', '기타 용도', '알 수 없음', 'B', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Compound_8221', '설명 없음', '기타', '기타 용도', '알 수 없음', 'B', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Agent_6010', '설명 없음', '기타', '기타 용도', '알 수 없음', 'B', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Element_7072', '설명 없음', '기타', '기타 용도', '알 수 없음', 'A', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Element_4334', '설명 없음', '기타', '기타 용도', '알 수 없음', 'A', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Molecule_9758', '설명 없음', '기타', '기타 용도', '알 수 없음', 'C', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Agent_5916', '설명 없음', '기타', '기타 용도', '알 수 없음', 'B', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Substance_9758', '설명 없음', '기타', '기타 용도', '알 수 없음', 'C', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Extract_5656', '설명 없음', '기타', '기타 용도', '알 수 없음', 'C', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Molecule_8612', '설명 없음', '기타', '기타 용도', '알 수 없음', 'B', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Element_1989', '설명 없음', '기타', '기타 용도', '알 수 없음', 'C', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Substance_2077', '설명 없음', '기타', '기타 용도', '알 수 없음', 'B', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Extract_9692', '설명 없음', '기타', '기타 용도', '알 수 없음', 'B', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Extract_7789', '설명 없음', '기타', '기타 용도', '알 수 없음', 'B', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Extract_8561', '설명 없음', '기타', '기타 용도', '알 수 없음', 'A', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Extract_7982', '설명 없음', '기타', '기타 용도', '알 수 없음', 'A', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Agent_7527', '설명 없음', '기타', '기타 용도', '알 수 없음', 'A', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Compound_6989', '설명 없음', '기타', '기타 용도', '알 수 없음', 'A', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Element_5262', '설명 없음', '기타', '기타 용도', '알 수 없음', 'A', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Element_5610', '설명 없음', '기타', '기타 용도', '알 수 없음', 'B', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Element_9071', '설명 없음', '기타', '기타 용도', '알 수 없음', 'B', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Substance_8385', '설명 없음', '기타', '기타 용도', '알 수 없음', 'B', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Compound_5038', '설명 없음', '기타', '기타 용도', '알 수 없음', 'B', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Agent_1775', '설명 없음', '기타', '기타 용도', '알 수 없음', 'C', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Molecule_1975', '설명 없음', '기타', '기타 용도', '알 수 없음', 'A', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Compound_3918', '설명 없음', '기타', '기타 용도', '알 수 없음', 'A', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Substance_1770', '설명 없음', '기타', '기타 용도', '알 수 없음', 'A', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Element_8931', '설명 없음', '기타', '기타 용도', '알 수 없음', 'B', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Substance_3884', '설명 없음', '기타', '기타 용도', '알 수 없음', 'B', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Extract_3562', '설명 없음', '기타', '기타 용도', '알 수 없음', 'C', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Substance_2962', '설명 없음', '기타', '기타 용도', '알 수 없음', 'A', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Extract_7613', '설명 없음', '기타', '기타 용도', '알 수 없음', 'C', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Molecule_6651', '설명 없음', '기타', '기타 용도', '알 수 없음', 'B', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Molecule_7133', '설명 없음', '기타', '기타 용도', '알 수 없음', 'A', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Molecule_5199', '설명 없음', '기타', '기타 용도', '알 수 없음', 'C', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Compound_1736', '설명 없음', '기타', '기타 용도', '알 수 없음', 'C', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Molecule_2993', '설명 없음', '기타', '기타 용도', '알 수 없음', 'A', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Element_4144', '설명 없음', '기타', '기타 용도', '알 수 없음', 'C', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Molecule_3131', '설명 없음', '기타', '기타 용도', '알 수 없음', 'C', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Agent_8929', '설명 없음', '기타', '기타 용도', '알 수 없음', 'C', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Agent_3354', '설명 없음', '기타', '기타 용도', '알 수 없음', 'B', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Molecule_7909', '설명 없음', '기타', '기타 용도', '알 수 없음', 'B', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Compound_7687', '설명 없음', '기타', '기타 용도', '알 수 없음', 'C', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Extract_7065', '설명 없음', '기타', '기타 용도', '알 수 없음', 'A', 'Unknown', 'admin', DEFAULT, DEFAULT),
+(DEFAULT, 'Compound_4282', '설명 없음', '기타', '기타 용도', '알 수 없음', 'A', 'Unknown', 'admin', DEFAULT, DEFAULT);</string>
+			<key>table</key>
+			<string>ingredient</string>
+			<key>view</key>
+			<string>SP_VIEW_CUSTOMQUERY</string>
+			<key>windowVerticalDividerPosition</key>
+			<real>214</real>
+		</dict>
+	</dict>
+	<key>encrypted</key>
+	<false/>
+	<key>format</key>
+	<string>connection</string>
+	<key>queryFavorites</key>
+	<array/>
+	<key>rdbms_type</key>
+	<string>mysql</string>
+	<key>rdbms_version</key>
+	<string>5.5.5-10.11.13-MariaDB-0ubuntu0.24.04.1</string>
+	<key>version</key>
+	<integer>1</integer>
+</dict>
+</plist>
