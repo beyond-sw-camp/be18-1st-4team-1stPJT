@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>ContentFilters</key>
+	<dict/>
+	<key>auto_connect</key>
+	<true/>
+	<key>data</key>
+	<dict>
+		<key>connection</key>
+		<dict>
+			<key>allowDataLocalInfile</key>
+			<integer>0</integer>
+			<key>database</key>
+			<string>disease_management</string>
+			<key>enableClearTextPlugin</key>
+			<integer>0</integer>
+			<key>host</key>
+			<string>192.168.64.3</string>
+			<key>name</key>
+			<string>beyond@192.168.64.3</string>
+			<key>rdbms_type</key>
+			<string>mysql</string>
+			<key>sslCACertFileLocation</key>
+			<string></string>
+			<key>sslCACertFileLocationEnabled</key>
+			<integer>0</integer>
+			<key>sslCertificateFileLocation</key>
+			<string></string>
+			<key>sslCertificateFileLocationEnabled</key>
+			<integer>0</integer>
+			<key>sslKeyFileLocation</key>
+			<string></string>
+			<key>sslKeyFileLocationEnabled</key>
+			<integer>0</integer>
+			<key>type</key>
+			<string>SPTCPIPConnection</string>
+			<key>useSSL</key>
+			<integer>0</integer>
+			<key>user</key>
+			<string>beyond</string>
+		</dict>
+		<key>session</key>
+		<dict>
+			<key>connectionEncoding</key>
+			<string>utf8mb4</string>
+			<key>contentFilterV2</key>
+			<dict>
+				<key>children</key>
+				<array/>
+				<key>filterClass</key>
+				<string>groupNode</string>
+				<key>isConjunction</key>
+				<true/>
+			</dict>
+			<key>contentPageNumber</key>
+			<integer>1</integer>
+			<key>contentSelection</key>
+			<data>
+			YnBsaXN0MDDUAQIDBAUGBwpYJHZlcnNpb25ZJGFyY2hpdmVyVCR0
+			b3BYJG9iamVjdHMSAAGGoF8QD05TS2V5ZWRBcmNoaXZlctEICVRk
+			YXRhgAGtCwwZGhscHSEoLDA0OFUkbnVsbNMNDg8QFBhXTlMua2V5
+			c1pOUy5vYmplY3RzViRjbGFzc6MREhOAAoADgASjFRYXgAWABoAI
+			gAxUdHlwZVRyb3dzVGtleXNfECZTZWxlY3Rpb25EZXRhaWxUeXBl
+			UHJpbWFyeUtleWVkRGV0YWlsc9MNDg8eHyCgoIAH0iIjJCVaJGNs
+			YXNzbmFtZVgkY2xhc3Nlc18QE05TTXV0YWJsZURpY3Rpb25hcnmj
+			JCYnXE5TRGljdGlvbmFyeVhOU09iamVjdNIODykroSqACYAL0g8t
+			Li9ZTlMuc3RyaW5ngApaZGlzZWFzZV9pZNIiIzEyXxAPTlNNdXRh
+			YmxlU3RyaW5nozEzJ1hOU1N0cmluZ9IiIzU2Xk5TTXV0YWJsZUFy
+			cmF5ozU3J1dOU0FycmF50iIjJjmiJicACAARABoAJAApADIANwBJ
+			AEwAUQBTAGEAZwBuAHYAgQCIAIwAjgCQAJIAlgCYAJoAnACeAKMA
+			qACtANYA3QDeAN8A4QDmAPEA+gEQARQBIQEqAS8BMQEzATUBOgFE
+			AUYBUQFWAWgBbAF1AXoBiQGNAZUBmgAAAAAAAAIBAAAAAAAAADoA
+			AAAAAAAAAAAAAAAAAAGd
+			</data>
+			<key>contentSortColIsAsc</key>
+			<true/>
+			<key>contentViewport</key>
+			<string>{{0, -28}, {1255, 840}}</string>
+			<key>isToolbarVisible</key>
+			<true/>
+			<key>queries</key>
+			<string>use disease_management;
+
+--	create tables
+--	create users table
+CREATE TABLE users (
+	user_id CHAR(36) PRIMARY KEY DEFAULT (UUID()),
+	user_name VARCHAR(255) NOT NULL,
+	user_pw VARCHAR(255) NOT NULL,
+	user_email VARCHAR(255) UNIQUE NOT NULL,
+	user_nickname VARCHAR(100) UNIQUE NOT NULL,
+	user_type CHAR(20) DEFAULT 'user' NOT NULL,
+	reg_date DATETIME DEFAULT (NOW()) NOT NULL,
+	update_date DATETIME DEFAULT (NOW()) NOT NULL,
+	delete_date DATETIME DEFAULT (NOW()),
+	is_delete BOOLEAN DEFAULT false
+);
+
+--	create product tables
+CREATE TABLE product (
+	product_id BIGINT PRIMARY KEY AUTO_INCREMENT,
+	product_name VARCHAR(255) UNIQUE NOT NULL,
+	brand_name VARCHAR(255),
+	category VARCHAR(100) NOT NULL,
+	image_url TEXT,
+	enrolled_id CHAR(36) NOT NULL,
+	reg_date DATETIME DEFAULT (NOW()) NOT NULL,
+	update_date DATETIME DEFAULT (NOW()) NOT NULL
+);
+
+--	create ingredient table
+CREATE TABLE ingredient (
+	`ingr_id` BIGINT PRIMARY KEY AUTO_INCREMENT,
+	`ingr_name` VARCHAR(255) UNIQUE NOT NULL,
+	`description` TEXT NOT NULL,
+	`functionality` TEXT NOT NULL,
+	`usage` TEXT NOT NULL,
+	`potential_risk` TEXT,
+	`safety_rating` VARCHAR(50),
+	`reference_source` TEXT NOT NULL,
+	`enrolled_id` CHAR(36) NOT NULL,
+	`reg_date` DATETIME DEFAULT (NOW()) NOT NULL,
+	`update_date` DATETIME DEFAULT (NOW()) NOT NULL
+);
+
+--	create disease table
+CREATE TABLE disease (
+	disease_id BIGINT PRIMARY KEY AUTO_INCREMENT,
+	disease_name VARCHAR(255) NOT NULL,
+	disease_info TEXT,
+	disease_effect TEXT,
+	enrolled_id CHAR(36) NOT NULL,
+	reg_date DATETIME DEFAULT (NOW()) NOT NULL,
+	update_date DATETIME DEFAULT (NOW()) NOT NULL
+);
+
+--	create life_style_table
+CREATE TABLE life_style (
+	life_style_id BIGINT PRIMARY KEY AUTO_INCREMENT,
+	life_style_name VARCHAR(255) NOT NULL,
+	enrolled_id CHAR(36) NOT NULL,
+	reg_date DATETIME DEFAULT (NOW()) NOT NULL,
+	update_date DATETIME DEFAULT (NOW()) NOT NULL	
+);
+
+--	create user_disease table
+CREATE TABLE user_disease (
+	user_disease_id BIGINT PRIMARY KEY AUTO_INCREMENT,
+	user_id CHAR(36) REFERENCES users(user_id),
+	disease_id BIGINT REFERENCES disease(disease_id),
+	reg_date DATETIME DEFAULT (NOW()) NOT NULL,
+	update_date DATETIME DEFAULT (NOW()) NOT NULL
+);
+
+--	create user favorite table
+CREATE TABLE user_favorite (
+	`user_favorite_id` BIGINT PRIMARY KEY AUTO_INCREMENT,
+	`user_id` CHAR(36) REFERENCES users(user_id),
+	`type` VARCHAR(20) NOT NULL,
+	`item_id` BIGINT NOT NULL,
+	`reg_date` DATETIME DEFAULT (NOW()) NOT NULL,
+	`update_date` DATETIME DEFAULT (NOW()) NOT NULL
+);
+
+--	create product_ingredient table
+CREATE TABLE product_ingredient (
+	product_ingredient_id BIGINT PRIMARY KEY AUTO_INCREMENT,
+	product_id BIGINT REFERENCES product(product_id),
+	ingr_id BIGINT REFERENCES ingredient(ingr_id),
+	enrolled_id CHAR(36) REFERENCES users(user_id),
+	reg_date DATETIME DEFAULT (NOW()) NOT NULL,
+	update_date DATETIME DEFAULT (NOW()) NOT NULL
+);
+
+--	create ingredient_disease table
+CREATE TABLE ingredient_disease (
+	`ingredient_disease_id` BIGINT PRIMARY KEY AUTO_INCREMENT,
+	`ingr_id` BIGINT REFERENCES ingredient(ingr_id),
+	`disease_id` BIGINT REFERENCES disease(disease_id),
+	`description` TEXT,
+	`reference_source` TEXT,
+	`type` VARCHAR(20) NOT NULL,
+	`enrolled_id` CHAR(36) NOT NULL,
+	`reg_date` DATETIME DEFAULT (NOW()) NOT NULL,
+	`update_date` DATETIME DEFAULT (NOW()) NOT NULL
+);
+
+--	create life_style_ingredient table
+CREATE TABLE life_style_ingredient (
+	life_style_ingr_id BIGINT PRIMARY KEY AUTO_INCREMENT,
+	life_style_id BIGINT REFERENCES life_style(life_style_id),
+	ingr_id BIGINT REFERENCES ingredient(ingr_id),
+	type VARCHAR(20) NOT NULL,
+	enrolled_id CHAR(36) NOT NULL,
+	reg_date DATETIME DEFAULT (NOW()) NOT NULL,
+	update_date DATETIME DEFAULT (NOW()) NOT NULL
+);
+
+--	create user_life_style table
+CREATE TABLE user_life_style (
+	user_life_styles BIGINT PRIMARY KEY AUTO_INCREMENT,
+	user_id CHAR(36) REFERENCES users(user_id),
+	life_style_id BIGINT REFERENCES life_style(life_style_id),
+	reg_date DATETIME DEFAULT (NOW()) NOT NULL,
+	update_date DATETIME DEFAULT (NOW()) NOT NULL
+);
+
+
+
+</string>
+			<key>table</key>
+			<string>disease</string>
+			<key>view</key>
+			<string>SP_VIEW_CUSTOMQUERY</string>
+			<key>windowVerticalDividerPosition</key>
+			<real>214</real>
+		</dict>
+	</dict>
+	<key>encrypted</key>
+	<false/>
+	<key>format</key>
+	<string>connection</string>
+	<key>queryFavorites</key>
+	<array/>
+	<key>rdbms_type</key>
+	<string>mysql</string>
+	<key>rdbms_version</key>
+	<string>5.5.5-10.11.13-MariaDB-0ubuntu0.24.04.1</string>
+	<key>version</key>
+	<integer>1</integer>
+</dict>
+</plist>
