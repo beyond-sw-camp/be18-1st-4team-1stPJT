@@ -3,30 +3,7 @@
 - [기능 명세서](#기능-명세서)
 - [테이블-정의서](#테이블-정의서)
 - [DDL](#ddl)  
-	1. [사용자](#사용자-테이블)
-	2. [제품](#제품-테이블)
-	3. [성분](#성분-테이블)
-	4. [질병](#질병-테이블)
-	5. [라이프스타일](#라이프스타일-테이블)
-	6. [제품 성분 관계 테이블](#제품-성분-관계-테이블)
-	7. [성분 질병 관계 테이블](#성분-질병-관계-테이블)
-	8. [라이프스타일 성분 관계 테이블](#라이프스타일-성분-관계-테이블)
-	9. [사용자 질병 관계 테이블](#사용자-질병-관계-테이블)
-	10. [사용자 라이프스타일 관계 테이블](#사용자-라이프스타일-관계-테이블)
-	11. [사용자 즐겨찾기 테이블](#사용자-즐겨찾기-테이블)
 - [DML](#dml)
-	1. [회원가입](#회원가입)
-	2. [로그인](#로그인)
-	3. [회원 정보 수정](#회원-정보-수정)
-	4. [회원 탈퇴](#회원-탈퇴)
-	5. [마이페이지(등록정보)](#마이페이지등록-정보)
-	6. [마이페이지(즐겨찾기)](#마이페이지즐겨찾기)
-	7. [성분 검색](#성분-검색)
-	8. [제품 검색](#제품-검색)
-	9. [질환 검색](#질환-검색)
-	10. [위험 표시](#위험-표시)
-	11. [사용자 라이프 스타일 위험 표시](#사용자-라이프스타일-위험표시)
-	12. [추천](#추천)
 
 
 # 시스템 흐름도
@@ -41,9 +18,12 @@
 # ERD
 ![ERD.png](./image/ERD.png)
 
+
 # DDL
-## 사용자 테이블
-``` SQL
+<details>
+	<summary>사용자 테이블</summary>
+
+```SQL
 -- 사용자 테이블
 CREATE TABLE `users`(
 	`user_id` UUID DEFAULT UUID() COMMENT '사용자 고유 ID',
@@ -64,7 +44,11 @@ CREATE TABLE `users`(
 	CONSTRAINT chk_user_type CHECK (`user_type` IN ('user', 'manager'))
 );
 ```
-## 제품 테이블
+</details>
+
+<details>
+	<summary>제품 테이블</summary>
+
 ```SQL
 -- 제품 테이블
 CREATE TABLE `products`(
@@ -82,8 +66,11 @@ CREATE TABLE `products`(
 	CONSTRAINT fk_products_enrolled_id FOREIGN KEY (enrolled_id) REFERENCES users(user_id)
 );
 ```
+</details>
 
-## 성분 테이블
+<details>
+	<summary>성분 테이블</summary>
+
 ```SQL
 -- 성분 테이블
 CREATE TABLE `ingredients`(
@@ -104,8 +91,11 @@ CREATE TABLE `ingredients`(
 	CONSTRAINT fk_ingredients_enrolled_id FOREIGN KEY (enrolled_id) REFERENCES users(user_id)
 );
 ```
+</details>
 
-## 질병 테이블
+<details>
+	<summary>질병 테이블</summary>
+
 ```SQL
 -- 질병 테이블
 CREATE TABLE `diseases`(
@@ -122,8 +112,11 @@ CREATE TABLE `diseases`(
 	CONSTRAINT fk_diseases_enrolled_id FOREIGN KEY (enrolled_id) REFERENCES users(user_id)
 );
 ```
+</details>
 
-## 라이프스타일 테이블
+<details>
+	<summary>라이프스타일 테이블</summary>
+
 ```SQL
 -- 라이프 스타일 테이블
 CREATE TABLE `life_styles`(
@@ -138,8 +131,11 @@ CREATE TABLE `life_styles`(
 	CONSTRAINT fk_life_styles_enrolled_id FOREIGN KEY (enrolled_id) REFERENCES users(user_id)
 );
 ```
+</details>
 
-## 제품 성분 관계 테이블
+<details>
+	<summary>제품 성분 관계 테이블</summary>
+
 ```SQL
 -- 제품 성분 관계 테이블
 CREATE TABLE `product_ingredients`(
@@ -158,8 +154,11 @@ CREATE TABLE `product_ingredients`(
 	CONSTRAINT fk_product_ingredients_product_id FOREIGN KEY (product_id) REFERENCES products(product_id)
 );
 ```
+</details>
 
-## 성분 질병 관계 테이블
+<details>
+	<summary>성분 질병 관계 테이블</summary>
+
 ```SQL
 -- 성분 질병 관계 테이블
 CREATE TABLE `ingredient_diseases`(
@@ -182,8 +181,11 @@ CREATE TABLE `ingredient_diseases`(
 	CONSTRAINT chk_ingredient_diseases_type CHECK (`type` IN ('good', 'bad'))
 );
 ```
+</details>
 
-## 라이프스타일 성분 관계 테이블
+<details>
+	<summary>라이프스타일 성분 관계 테이블</summary>
+
 ```SQL
 -- 라이프스타일 성분 관계 테이블
 CREATE TABLE `life_style_ingredients`(
@@ -204,8 +206,11 @@ CREATE TABLE `life_style_ingredients`(
 	CONSTRAINT chk_life_style_ingredients_type CHECK (`type` IN ('good', 'bad'))
 );
 ```
+</details>
 
-## 사용자 질병 관계 테이블
+<details>
+	<summary>사용자 질병 관계 테이블</summary>
+
 ```SQL
 -- 사용자 질병 관계 테이블
 CREATE TABLE `user_diseases`(
@@ -222,8 +227,11 @@ CREATE TABLE `user_diseases`(
 	CONSTRAINT fk_user_diseases_diseases_id FOREIGN KEY (disease_id) REFERENCES diseases(disease_id)
 );
 ```
+</details>
 
-## 사용자 라이프스타일 관계 테이블
+<details>
+	<summary>사용자 라이프스타일 관계 테이블</summary>
+
 ```SQL
 -- 사용자 라이프스타일 관계 테이블
 CREATE TABLE `user_life_styles`(
@@ -239,8 +247,11 @@ CREATE TABLE `user_life_styles`(
 	CONSTRAINT fk_user_life_styles_life_style FOREIGN KEY (life_style_id) REFERENCES life_styles(life_style_id)
 );
 ```
+</details>
 
-## 사용자 즐겨찾기 테이블
+<details>
+	<summary>사용자 즐겨찾기 테이블</summary>
+
 ```SQL
 -- 사용자 즐겨찾기 테이블
 CREATE TABLE `user_favorites`(
@@ -257,9 +268,12 @@ CREATE TABLE `user_favorites`(
 	CONSTRAINT ck_user_favorites_type CHECK (`type` IN ('products', 'ingredients', 'diseases'))
 );
 ```
+</details>
 
 # DML
-## 회원가입
+<details>
+	<summary>회원가입</summary>
+
 ```SQL
 -- 회원 가입 member-001
 DELIMITER $$
@@ -313,8 +327,11 @@ BEGIN
 END $$
 DELIMITER ;
 ```
+</details>
 
-## 로그인
+<details>
+	<summary>로그인</summary>
+
 ```SQL
 -- 로그인 member-002
 DELIMITER $$
@@ -348,8 +365,11 @@ BEGIN
 END $$
 DELIMITER ;
 ```
+</details>
 
-## 회원 정보 수정
+<details>
+	<summary>회원 정보 수정</summary>
+
 ```SQL
 -- 회원 정보 수정 member-004
 DELIMITER $$
@@ -382,8 +402,11 @@ BEGIN
 END $$
 DELIMITER ;
 ```
+</details>
 
-## 회원 탈퇴
+<details>
+	<summary>회원 탈퇴</summary>
+
 ```SQL
 -- 회원 탈퇴 member-005
 DELIMITER $$
@@ -407,8 +430,11 @@ BEGIN
 END $$
 DELIMITER ;
 ```
+</details>
 
-## 마이페이지(등록 정보)
+<details>
+	<summary>마이페이지(등록 정보)</summary>
+
 ```SQL
 -- 마이페이지 (등록 정보) member-006
 DELIMITER $$
@@ -434,8 +460,11 @@ BEGIN
 END $$
 DELIMITER ;
 ```
+</details>
 
-## 마이페이지(즐겨찾기)
+<details>
+	<summary>마이페이지(즐겨찾기)</summary>
+
 ```SQL
 -- 마이페이지 (즐겨찾기) member-007
 DELIMITER $$
@@ -484,8 +513,11 @@ BEGIN
 END $$
 DELIMITER ;
 ```
+</details>
 
-## 성분 검색
+<details>
+	<summary>성분 검색</summary>
+
 ```SQL
 -- 성분 검색 ingredient-001,2,3,4
 DELIMITER $$
@@ -516,8 +548,11 @@ BEGIN
 END $$
 DELIMITER ;
 ```
+</details>
 
-## 제품 검색
+<details>
+	<summary>제품 검색</summary>
+
 ```SQL
 -- 제품 검색 product-001,2,3,4
 DELIMITER $$
@@ -556,8 +591,11 @@ BEGIN
 END $$
 DELIMITER ;
 ```
+</details>
 
-## 질환 검색
+<details>
+	<summary>질환 검색</summary>
+
 ```SQL
 -- 질환 검색 disease-001,2
 DELIMITER $$
@@ -586,8 +624,11 @@ BEGIN
 END $$
 DELIMITER ;
 ```
+</details>
 
-## 위험 표시
+<details>
+	<summary>위험 표시</summary>
+
 ```SQL
 -- 위험 표시 user-product-001
 DELIMITER $$
@@ -646,8 +687,11 @@ BEGIN
 END $$
 DELIMITER ;
 ```
+</details>
 
-## 사용자 라이프스타일 위험표시
+<details>
+	<summary>사용자 라이프스타일 위험표시</summary>
+
 ```SQL
 -- 사용자 라이프 스타일 위험 표시 user-product-002
 DELIMITER $$
@@ -673,8 +717,11 @@ BEGIN
 END $$
 DELIMITER ;
 ```
+</details>
 
-## 추천
+<details>
+	<summary>추천</summary>
+
 ```SQL
 -- 추천 user-product-003
 DELIMITER $$
@@ -710,3 +757,4 @@ BEGIN
 END $$
 DELIMITER ;
 ```
+</details>
