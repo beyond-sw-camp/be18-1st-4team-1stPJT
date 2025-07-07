@@ -1,4 +1,3 @@
-```sql
 -- 유저 테이블
 CREATE TABLE `user`(
 	user_id CHAR(36) PRIMARY KEY,
@@ -214,4 +213,3 @@ CREATE TABLE `life_style_ingredients`(
 	reg_date DATETIME,
 	 update_date DATETIME
 );
-```
