@@ -128,3 +128,29 @@ SELECT
     u.user_email AS enrolled_by_email
 FROM life_styles ls
 JOIN user u ON ls.enrolled_id = u.user_id;
+
+--
+SELECT diseases_name
+from diseases
+WHERE diseases_name like '%암%';
+
+SELECT disease_info, disease_effect, good_ingredient, precautions, bad_ingredient
+FROM diseases
+WHERE diseases_name LIKE '%암%';
+
+SELECT Detailed_information
+from diseases
+WHERE diseases_name like '%암%';
+
+SELECT description ,Emphasis
+from ingredients
+WHERE ingr_name like '땅콩';
+
+SELECT life_style_name , Information
+from life_styles
+WHERE life_style_name like '비건';
+
+SELECT life_style_name, Recommendation
+FROM life_styles
+WHERE life_style_name LIKE '비건'
+  AND Recommendation IS NOT NULL;
