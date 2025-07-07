@@ -1,4 +1,4 @@
-```
+```sql
 -- 유저 테이블
 CREATE TABLE `user`(
 	user_id CHAR(36) PRIMARY KEY,
