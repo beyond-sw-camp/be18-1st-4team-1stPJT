@@ -213,17 +213,24 @@ CREATE PROCEDURE getIngrProc(
 )
 BEGIN
 	SELECT
-		`ingr_id`
-		, `ingr_name`
-		, `description`
-		, `functionality`
-		, `usage`
-		, `potential_risks`
-		, `safety_rating`
-		, `reference_source`
-		, `reg_date`
-		, `update_date`
-	FROM ingredients
+		i.`ingr_id`
+		, i.`ingr_name`
+		, i.`description`
+		, i.`functionality`
+		, i.`usage`
+		, i.`potential_risks`
+		, i.`safety_rating`
+		, i.`reference_source`
+		, id.`disease_id`
+		, d.`disease_name`
+		, id.`enrolled_id`
+		, id.`reg_date`
+		, id.`update_date`
+	FROM ingredients AS i
+	INNER JOIN ingredient_diseases AS id
+		ON i.ingr_id = id.ingr_id
+	INNER JOIN diseases AS d
+		ON d.disease_id = id.disease_id
 	WHERE ingr_name LIKE CONCAT('%', in_search, '%');
 END $$
 DELIMITER ;
@@ -235,41 +242,33 @@ CREATE PROCEDURE getProductProc(
 	IN `in_type` VARCHAR(20)
 )
 BEGIN
-	CASE in_type
-		WHEN 'name' THEN
-			SELECT
-				`product_id`
-				,`product_name`
-				, `brand_name`
-				, `category`
-				, `img_url`
-				, `reg_date`
-				, `update_date`
-			FROM products
-			WHERE product_name LIKE CONCAT('%', in_search, '%');
-		WHEN 'brand' THEN
-			SELECT
-				`product_id`
-				,`product_name`
-				, `brand_name`
-				, `category`
-				, `img_url`
-				, `reg_date`
-				, `update_date`
-			FROM products
-			WHERE brand_name LIKE CONCAT('%', in_search, '%');
-		ELSE
-			SELECT
-				`product_id`
-				, `product_name`
-				, `brand_name`
-				, `category`
-				, `img_url`
-				, `reg_date`
-				, `update_date`
-			FROM products
-			WHERE product_name LIKE CONCAT('%', in_search, '%') OR brand_name LIKE CONCAT('%', in_search, '%');
-	END CASE;
+
+	SELECT
+		p.`product_id`
+		, p.`product_name`
+		, p.`brand_name`
+		, p.`category`,
+		, p.`img_url`,
+		, i.`ingr_name`,
+		pri.`enrolled_id`,
+		pri.`reg_date`,
+		pri.`update_date`
+	FROM products AS p
+	INNER JOIN product_ingredients AS pri
+		ON p.product_id = pri.product_id
+	INNER JOIN ingredients AS i
+		ON i.ingr_id = pri.ingr_id
+	WHERE
+		(
+			in_type = 'name' AND p.product_name LIKE CONCAT('%', in_search, '%')
+		) OR (
+			in_type = 'brand' AND p.brand_name LIKE CONCAT('%', in_search, '%')
+		) OR (
+			in_type NOT IN ('name', 'brand') AND (
+				p.product_name LIKE CONCAT('%', in_search, '%')
+				OR p.brand_name LIKE CONCAT('%', in_search, '%')
+			)
+		);
 END $$
 DELIMITER ;
 
@@ -280,12 +279,22 @@ CREATE PROCEDURE getDiseasesProc(
 )
 BEGIN
 	SELECT
-		`disease_name`
-		, `disease_info`
-		, `disease_effect`
-		, `reg_date`
-		, `update_date`
-	FROM diseases
+		d.`disease_name`
+		, d.`disease_info`
+		, d.`disease_effect`
+		, id.`ingr_id`
+		, i.`ingr_name`
+		, id.`description`
+		, id.`reference_source`
+		, id.`type`
+		, id.`enrolled_id`
+		, id.`reg_date`
+		, id.`update_date`
+	FROM diseases AS d
+	INNER JOIN ingredient_diseases AS id
+		ON d.disease_id = id.disease_id
+	INNER JOIN ingredients AS i
+		ON i.ingr_id = id.ingr_id
 	WHERE disease_name LIKE CONCAT('%', in_search, '%');
 END $$
 DELIMITER ;
