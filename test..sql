@@ -199,33 +199,43 @@ LEFT JOIN ingredient i
 WHERE disease_name LIKE '%암%';
 
 -- 위험 표시 user-product-001
-SELECT 
-	i.ingr_name,
-	i.safety_rating
-FROM ingredients i
-LEFT JOIN ingredient_disease id
+SELECT i.description,
+	   i.safety_rating
+from ingredient i
+LEFT JOIN ingredient_disease id 
 	ON id.ingr_id = i.ingr_id
-LEFT JOIN user_disease ud
+LEFT JOIN user_disease ud 
 	ON ud.disease_id = id.disease_id
-INNER JOIN users AS u
-	ON ud.user_id = u.user_id
-WHERE u.user_id = '유저 아이디'
-
+LEFT JOIN users u 
+	ON u.user_id = ud.user_id
+WHERE users = '유저 아이디';
 
 -- 사용자 라이프 스타일 위험 표시 user-product-002
-SELECT life_style_name ,
-		 type
+SELECT l.life_style_name , 
+	   lsi.`type`
 from life_style l
-LEFT JOIN life_style_ingredient lsi
+LEFT JOIN life_style_ingredient lsi 
 	ON lsi.life_style_ingr_id = l.life_style_id
-WHERE life_style_name like '비건';
+LEFT JOIN user_life_style uls 
+	ON uls.life_style_id = l.life_style_id
+LEFT JOIN users u 
+	ON u.user_id = uls.user_id
+WHERE users = '유저 아이디';
 
 -- 추천 user-product-003
-SELECT l.life_style_name, i.ingr_name, `type` 
+SELECT l.life_style_name,
+	   i.ingr_name, 
+	    `type` 
 FROM life_style l
-LEFT JOIN life_style_ingredient lsi ON lsi.life_style_id = l.life_style_id
-LEFT JOIN ingredient i ON i.ingr_id = lsi.ingr_id
-WHERE life_style_name LIKE '비건';
+LEFT JOIN life_style_ingredient lsi 
+	ON lsi.life_style_id = l.life_style_id
+LEFT JOIN ingredient i 
+	ON i.ingr_id = lsi.ingr_id
+LEFT JOIN user_life_style uls 
+	ON uls.life_style_id = l.life_style_id
+LEFT JOIN users u 
+	ON u.user_id = uls.user_id
+WHERE users = '유저 아이디';
 									
 
 -- 관리자 
