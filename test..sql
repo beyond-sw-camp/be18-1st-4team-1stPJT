@@ -129,7 +129,7 @@ INNER JOIN ingredient i
 	ON f.item_id = i.ingr_id
 WHERE f.user_id = 'input_id';
 
--- 성분 검색 ingredient-001,2,3,4(조인문 수정 및 질병 추가)
+-- 성분 검색 ingredient-001,2,3,4
 
 SELECT ngr_name,
 		 `description`,
