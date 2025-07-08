@@ -195,7 +195,7 @@ ON l.life_style_id = u_l.life_style_id
 WHERE user_id = '사용자 ID';
 ```
 
-##### 회원 탈퇴 (요구사항 코드 : member-005)
+#### 회원 탈퇴 (요구사항 코드 : member-005)
 ``` SQL
 UPDATE `users`
 SET `is_deleted` = TRUE,
@@ -203,7 +203,7 @@ SET `is_deleted` = TRUE,
 WHERE `user_id` = '' AND `is_deleted` = FALSE;
 ```
 
-##### 회원 등록 정보 조회 (요구사항 코드 : member-006)
+#### 회원 등록 정보 조회 (요구사항 코드 : member-006)
 ``` SQL
 SELECT u.user_id,
        d.disease_name,
@@ -220,7 +220,7 @@ INNER JOIN life_styles l
 WHERE user_id = 'input_id';
 ```
 
-##### 회원 관심 상품 / 재료 / 질병 조회 (요구사항 코드 : member-007)
+#### 회원 관심 상품 / 재료 / 질병 조회 (요구사항 코드 : member-007)
 ``` SQL
 SELECT f.user_id,
        f.type,
@@ -247,7 +247,7 @@ INNER JOIN diseases d
 WHERE f.user_id = 'input_id';
 ```
 
-##### 질환 검색 (요구사항 코드 : disease-001,002,003)
+#### 질환 검색 (요구사항 코드 : disease-001,002,003)
 ```SQL
 SELECT d.disease_info,
 		 d.disease_effect,
@@ -262,7 +262,7 @@ LEFT JOIN ingredient i
 WHERE disease_name LIKE '%암%';
 ```
 
-##### 위험 표시 (요구사항 코드 : user-product-001)
+#### 위험 표시 (요구사항 코드 : user-product-001)
 ```SQL
 SELECT i.description,
 	   i.safety_rating
@@ -276,7 +276,7 @@ LEFT JOIN users u
 WHERE users = '유저 아이디';
 ```
 
-##### 사용자 라이프 스타일 위험 표시 (요구사항 코드 : user-product-002)
+#### 사용자 라이프 스타일 위험 표시 (요구사항 코드 : user-product-002)
 ```SQL
 SELECT l.life_style_name , 
 	   lsi.`type`
@@ -290,7 +290,7 @@ LEFT JOIN users u
 WHERE users = '유저 아이디';
 ```
 
-##### 추천 (요구사항 코드 : user-product-003)
+#### 추천 (요구사항 코드 : user-product-003)
 ```SQL
 SELECT l.life_style_name,
 	   i.ingr_name, 
