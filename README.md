@@ -5,17 +5,19 @@
 2. [프로젝트 개요](#프로젝트-개요)  
 	2.1 [💡배경](#배경)  
 	2.2 [🎯서비스 목표](#서비스-목표)  
-3. [🎬프로젝트 시나리오](#프로젝트-시나리오)  
-4. [📘요구사항 명세서](#요구사항-명세서)  
-5. [📅WBS](#WBS)  
-6. [ERD](#ERD)
-7. [SQL](#SQL)
+3. [📅WBS](#WBS)  
+4. [🎬프로젝트 시나리오](#프로젝트-시나리오)  
+5. [📘요구사항 명세서](#요구사항-명세서)  
+6. [🗃️테이블 명세서](#테이블-명세서)
+7. [📊ERD](#ERD)
+8. [SQL](#SQL)
 ---
 ### 팀원
+
 | 김택곤 | 손혜원 | 윤동기 | 임승택 | 조상원 | 조용주 |
 | --- | --- | --- | --- | --- | --- |
 |  <img width="130" alt="스크린샷 2025-07-08 오전 9 51 16" src="https://github.com/user-attachments/assets/ef9c2dd8-56d9-4b2a-bc00-bac16587590c" />   |  <img width="128" alt="스크린샷 2025-07-08 오전 9 51 30" src="https://github.com/user-attachments/assets/b2ecc98e-c8ed-409e-8d43-0585772a1080" /> | <img width="128" alt="스크린샷 2025-07-08 오전 9 51 25" src="https://github.com/user-attachments/assets/c313e8c4-2866-446f-a47b-5743634f98f1" /> | <img width="128" alt="스크린샷 2025-07-08 오전 9 51 59" src="https://github.com/user-attachments/assets/153e1a3d-707d-4394-8799-a118f676e9f6" />| <img width="129" alt="스크린샷 2025-07-08 오전 9 54 25" src="https://github.com/user-attachments/assets/c6460299-db56-439f-84be-68b2fcf8d2af" />|  <img width="129" alt="스크린샷 2025-07-08 오전 9 51 47" src="https://github.com/user-attachments/assets/b3d89c7e-364c-4350-8064-261435051522" />|
-| --- | --- | --- | --- | --- | --- |
+|<a href="" target="_blank"><img src="https://img.shields.io/badge/github-181717.svg?style=for-the-badge&logo=github&logoColor=white" /></a> | <a href="" target="_blank"><img src="https://img.shields.io/badge/github-181717.svg?style=for-the-badge&logo=github&logoColor=white" /></a> | <a href="" target="_blank"><img src="https://img.shields.io/badge/github-181717.svg?style=for-the-badge&logo=github&logoColor=white" /></a> | <a href="https://github.com/lst405656" target="_blank"><img src="https://img.shields.io/badge/github-181717.svg?style=for-the-badge&logo=github&logoColor=white" /></a> | <a href="" target="_blank"><img src="https://img.shields.io/badge/github-181717.svg?style=for-the-badge&logo=github&logoColor=white" /></a> | <a href="" target="_blank"><img src="https://img.shields.io/badge/github-181717.svg?style=for-the-badge&logo=github&logoColor=white" /></a> |
 
 
 ---
@@ -44,7 +46,12 @@
 ##### 🌱건강하고 안전한 소비 환경 조성
  편의점 식품부터 화장품, 생활용품에 이르기까지 일상 속 다양한 제품의 성분 투명성을 높여, 소비자들이 불필요하거나 유해할 수 있는 성분을 피하고 건강한 성분을 선택할 수 있는 안전한 소비 환경 조성에 기여합니다.  
 
- ---
+---
+
+### [📅WBS](https://docs.google.com/spreadsheets/d/1ywVBV67NrzWV-1znNUS8sd5j1ng35hN3S3RMZ7b0pGk/edit?gid=509945759#gid=509945759)
+![WBS.png](./image/WBS.png)  
+
+---
 
 ### 🎬프로젝트 시나리오
 ![sys-flow.png](./image/sys-flow.png)  
@@ -55,11 +62,12 @@
 ![SRS.png](./image/SRS.png)  
 
 ---
-### [📅WBS](https://docs.google.com/spreadsheets/d/1ywVBV67NrzWV-1znNUS8sd5j1ng35hN3S3RMZ7b0pGk/edit?gid=509945759#gid=509945759)
-![WBS.png](./image/WBS.png)  
+
+### [🗃️테이블 명세서](https://docs.google.com/spreadsheets/d/1ywVBV67NrzWV-1znNUS8sd5j1ng35hN3S3RMZ7b0pGk/edit?gid=2018217042#gid=2018217042)
+![table.png](./image/table.png)  
 
 ---
-### ERD
+### 📊ERD
 ![ERD.png](./image/ERD.png)  
 
 ---
