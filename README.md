@@ -441,61 +441,62 @@ WHERE f.user_id = 'input_id';
 #### 질환 검색 (요구사항 코드 : disease-001,002,003)
 ```SQL
 SELECT d.disease_info,
-		 d.disease_effect,
-		 d.precautions,
-		 ind.type,
-		 i.ingr_name
-FROM disease d 
-LEFT JOIN ingredient_disease ind
+	   d.disease_effect,
+	   ind.type,
+	   i.ingr_name
+FROM diseases d 
+LEFT JOIN ingredient_diseases ind
 	ON ind.disease_id = d.disease_id
-LEFT JOIN ingredient i
+LEFT JOIN ingredients i
 	ON i.ingr_id = ind.ingr_id
-WHERE disease_name LIKE '%암%';
+WHERE disease_name LIKE '아토피 피부염';
 ```
 
 #### 위험 표시 (요구사항 코드 : user-product-001)
 ```SQL
 SELECT i.description,
 	   i.safety_rating
-from ingredient i
-LEFT JOIN ingredient_disease id 
+from ingredients i
+LEFT JOIN ingredient_diseases id 
 	ON id.ingr_id = i.ingr_id
-LEFT JOIN user_disease ud 
+LEFT JOIN user_diseases ud 
 	ON ud.disease_id = id.disease_id
 LEFT JOIN users u 
 	ON u.user_id = ud.user_id
-WHERE users = '유저 아이디';
+WHERE user_name = '홍길동';
 ```
 
 #### 사용자 라이프 스타일 위험 표시 (요구사항 코드 : user-product-002)
 ```SQL
-SELECT l.life_style_name , 
-	   lsi.`type`
-from life_style l
-LEFT JOIN life_style_ingredient lsi 
-	ON lsi.life_style_ingr_id = l.life_style_id
-LEFT JOIN user_life_style uls 
+SELECT lsi.ingr_id,
+ 	   life_style_name, 
+ 	   	 `type`
+from life_styles l
+LEFT JOIN life_style_ingredients lsi 
+	ON lsi.life_style_id = l.life_style_id
+LEFT JOIN user_life_styles uls 
 	ON uls.life_style_id = l.life_style_id
 LEFT JOIN users u 
 	ON u.user_id = uls.user_id
-WHERE users = '유저 아이디';
+WHERE user_name = '홍길동';
 ```
 
 #### 추천 (요구사항 코드 : user-product-003)
 ```SQL
-SELECT l.life_style_name,
+SELECT lsi.ingr_id,
+	   l.life_style_name,
 	   i.ingr_name, 
 	    `type` 
-FROM life_style l
-LEFT JOIN life_style_ingredient lsi 
+FROM life_styles l
+LEFT JOIN life_style_ingredients lsi 
 	ON lsi.life_style_id = l.life_style_id
-LEFT JOIN ingredient i 
+LEFT JOIN ingredients i 
 	ON i.ingr_id = lsi.ingr_id
-LEFT JOIN user_life_style uls 
+LEFT JOIN user_life_styles uls 
 	ON uls.life_style_id = l.life_style_id
 LEFT JOIN users u 
 	ON u.user_id = uls.user_id
-WHERE users = '유저 아이디';
+WHERE user_name = '홍길동';
 ```
 </details>
 
@@ -534,5 +535,16 @@ WHERE users = '유저 아이디';
 ###### 성향 변경 후
 ![성향 변경 후](https://github.com/user-attachments/assets/bdbc7ed1-a6ee-4476-97e4-65a6be7321f6)
 
+#### 질환 검색 (요구사항 코드 : disease-001,002,003)
+<img width="716" alt="스크린샷 2025-07-08 오후 5 38 48" src="https://github.com/user-attachments/assets/5ead4d80-f2bb-4551-8100-3e0885d367ad" />
+
+#### 위험 표시 (요구사항 코드 : user-product-001)
+<img width="477" alt="스크린샷 2025-07-08 오후 5 40 03" src="https://github.com/user-attachments/assets/afde1612-55a6-4cbd-a2b4-57fe72c26337" />
+
+#### 사용자 라이프 스타일 위험 표시 (요구사항 코드 : user-product-002)
+<img width="303" alt="스크린샷 2025-07-08 오후 5 45 17" src="https://github.com/user-attachments/assets/1fd50634-05a1-47f0-8ca8-3d02ed556223" />
+
+#### 추천 (요구사항 코드 : user-product-003)
+<img width="415" alt="스크린샷 2025-07-08 오후 5 47 41" src="https://github.com/user-attachments/assets/ddedb83a-6d34-47c3-bb35-18ad92b50884" />
 
 </details>
