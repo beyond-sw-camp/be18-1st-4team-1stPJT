@@ -553,23 +553,30 @@ VALUES (
 	@yoondk_id)
 ;
 
+SELECT *
+FROM product_ingredients
+WHERE product_id = 16 AND ingr_id = 7
+;
 
 -- 제품 성분 관계 삭제 admin-014
 DELETE 
 FROM product_ingredients
-WHERE product_ingredients_id = 1
+WHERE product_ingredients_id = 137
 ;
-
 
 -- 제품 성분 관계 업데이트 admin-015
 UPDATE product_ingredients
-SET product_id = 10
-	 ingr_id = 5
-	 enrolled_id = @yoondk_id
+SET product_id = 10,
+	 ingr_id = 5,
+	 enrolled_id = @yoondk_id,
 	 update_date = CURRENT_TIMESTAMP
-WHERE product_ingredients_id = 1
+WHERE product_ingredients_id = 138
 ;
 
+SELECT *
+FROM product_ingredients
+WHERE product_ingredients_id = 138
+;
 
 -- 성분 질병 추가 admin-016
 INSERT INTO ingredient_diseases (
@@ -582,31 +589,39 @@ INSERT INTO ingredient_diseases (
 VALUES (
 	1, 
 	1, 
-	'마데카소사이드는 아토피 피부 개선에 도움.', 
-	'https://ncbi.nlm.nih.gov/pubmed/24640902', 
-	'good', 
-	@chosw_id)
+	'테스트 설명1', 
+	'테스트 url : https://ncbi.nlm.nih.gov/pubmed/24640902', 
+	'good',
+	@yoondk_id)
 ;
 
+SELECT *
+FROM ingredient_diseases
+WHERE ingr_id = 1 AND diseases_id = 1 AND `description` = '테스트 설명1'
+;
 
 -- 성분 질병 관계 삭제 admin-017
 DELETE 
 FROM ingredient_diseases
-WHERE ingredient_diseases_id = 1
+WHERE ingredient_diseases_id = 67
 ;
 
 
 -- 성분 질병 관계 업데이트 admin-018
 UPDATE ingredient_diseases
-SET ingr_id = 1
-	 disease_id = 1
-	 `description` = '새로운 설명 추가'
-	 reference_source = '출처 url 수정'
-	 enrolled_id = @yoondk_id
+SET ingr_id = 1,
+	 diseases_id = 1,
+	 `description` = '새로운 설명 추가',
+	 reference_source = '출처 url 수정',
+	 enrolled_id = @yoondk_id,
 	 update_date = CURRENT_TIMESTAMP
-WHERE ingredient_diseases_id = 1
+WHERE ingredient_diseases_id = 68
 ;
 
+SELECT *
+FROM ingredient_diseases
+WHERE ingredient_diseases_id = 68
+;
 
 -- 라이프 스타일 질병 관계 추가 admin-019  
 INSERT INTO life_style_ingredients (
@@ -621,22 +636,30 @@ VALUES (
 	@chosw_id)
 ;
 
-
+SELECT *
+FROM life_style_ingredients
+WHERE life_style_id = 1 AND ingr_id = 1
+;
 -- 라이프 스타일 질병 관계 삭제 admin-020
 DELETE 
 FROM life_style_ingredients
-WHERE life_style_ingredients_id = 1
+WHERE life_style_ingredients = 73
 ;
 
 
 -- 라이프 스타일 질병 관계 업데이트 admin-021
 UPDATE life_style_ingredients
-SET life_style_id = 1
-	 ingr_id = 1
-	 `type` = 'bad' 
-	 enrolled_id = @yoondk_id
+SET life_style_id = 1,
+	 ingr_id = 1,
+	 `type` = 'bad' ,
+	 enrolled_id = @yoondk_id,
 	 update_date = CURRENT_TIMESTAMP
-WHERE life_style_ingredients_id = 1
+WHERE life_style_ingredients = 74
+;
+
+SELECT *
+FROM life_style_ingredients
+WHERE life_style_ingredients = 74
 ;
 
 		
