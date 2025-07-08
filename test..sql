@@ -159,7 +159,6 @@ SELECT p.brand_name,
 		 p.product_name,
 		 p.category, 
 		 p.img_url, 
-		 i.ingr_name
 FROM products AS p
 WHERE p.brand_name = '브랜드명'
 ;
