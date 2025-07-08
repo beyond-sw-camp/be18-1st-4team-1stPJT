@@ -540,7 +540,7 @@ WHERE user_name = '홍길동';
 ![회원 탈퇴 전](https://github.com/user-attachments/assets/f1aeb06d-15be-4c93-ae2c-627772fa44e3)
 
 ###### 회원 탈퇴 후
-![회원 탈퇴 후](htps://github.com/user-attachments/assets/f0f847dd-519f-4b38-9307-4edd1cc91aeb)
+![회원 탈퇴 후](https://github.com/user-attachments/assets/f0f847dd-519f-4b38-9307-4edd1cc91aeb)
 
 #### 자신의 등록 정보 조회 (요구사항 코드 : member-006)
 ![image](https://github.com/user-attachments/assets/be7d90ce-25e5-486f-8eaf-55b1e72855d0)
