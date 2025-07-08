@@ -145,7 +145,7 @@ WHERE user_email = '이메일'
 UPDATE user_diseases
 SET disease_id = '변경할 질병 ID' 
 WHERE user_id = '사용자 ID'
-AND disease_id = '변경하고 싶은 질병 ID';
+      AND disease_id = '변경하고 싶은 질병 ID';
 ```
 ```SQL
 SELECT user_name AS '이름',
@@ -165,7 +165,7 @@ WHERE user_id = '사용자 ID';
 UPDATE user_favorites
 SET item_id = '변경할 즐겨찾기 대상 ID'
 WHERE user_id = '사용자 ID'
-AND item_id = '변경하고 싶은 즐겨찾기 대상 ID';
+      AND item_id = '변경하고 싶은 즐겨찾기 대상 ID';
 ```
 ```SQL
 SELECT user_name AS '이름',
@@ -182,7 +182,7 @@ WHERE u.user_id = '사용자 ID';
 UPDATE user_life_styles
 SET life_style_id = '변경할 라이프스타일 ID'
 WHERE user_id = '사용자 ID'
-AND life_style_id = '변경하고 싶은 라이프스타일 ID';
+      AND life_style_id = '변경하고 싶은 라이프스타일 ID';
 ```
 ```SQL
 SELECT user_name AS '이름',
