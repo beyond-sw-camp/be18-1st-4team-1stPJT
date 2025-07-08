@@ -180,7 +180,7 @@ LEFT JOIN ingredients AS i
 	ON p_i.ingr_id = i.ingr_id
 LEFT JOIN ingredient_diseases AS i_d
 	ON i.ingr_id = i_d.ingr_id
-WHERE p.product_name = '제품명' AND i_d.type = 'good'
+WHERE p.product_name = '제품명' AND i_d.type = 'bad'
 ;
 
 
