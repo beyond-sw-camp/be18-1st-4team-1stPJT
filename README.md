@@ -195,6 +195,58 @@ ON l.life_style_id = u_l.life_style_id
 WHERE user_id = '사용자 ID';
 ```
 
+##### 회원 탈퇴 (요구사항 코드 : member-005)
+``` SQL
+UPDATE `users`
+SET `is_deleted` = TRUE,
+    `delete_date` = CURRENT_TIMESTAMP
+WHERE `user_id` = '' AND `is_deleted` = FALSE;
+```
+
+##### 회원 등록 정보 조회 (요구사항 코드 : member-006)
+``` SQL
+SELECT u.user_id,
+       d.disease_name,
+       l.life_style_name
+FROM users u
+INNER JOIN user_disease u_d
+	ON u.user_id = u_d.user_id 
+INNER JOIN disease d
+	ON u_d.diseases_id = d.disease_id
+INNER JOIN user_life_styles u_l
+	ON u.user_id = u_l.user_id
+INNER JOIN life_styles l
+	ON u_l.life_style_id = l.life_style_id
+WHERE user_id = 'input_id';
+```
+
+##### 회원 관심 상품 / 재료 / 질병 조회 (요구사항 코드 : member-007)
+``` SQL
+SELECT f.user_id,
+       f.type,
+       p.product_name
+FROM user_favorites f
+INNER JOIN products p
+	ON f.item_id = p.product_id
+WHERE f.user_id = 'input_id';
+
+SELECT f.user_id,
+       f.type,
+       i.ingr_name
+FROM user_favorites f
+INNER JOIN ingredient i
+	ON f.item_id = i.ingr_id
+WHERE f.user_id = 'input_id';
+
+SELECT f.user_id,
+       f.type,
+       d.disease_name
+FROM user_favorites f
+INNER JOIN diseases d
+	ON f.item_id = d.disease_id
+WHERE f.user_id = 'input_id';
+```
+
 ##### 질환 검색 (요구사항 코드 : disease-001,002,003)
 ```SQL
 SELECT d.disease_info,
