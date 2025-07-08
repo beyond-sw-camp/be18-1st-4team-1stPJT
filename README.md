@@ -113,9 +113,8 @@ VALUES (UUID(), '이름', '비밀번호', '이메일', '닉네임', NOW(), NOW()
 
 #### 회원가입(요구사항 코드: member-002)
 ```SQL
-SELECT
-	user_email,
-	user_pw
+SELECT user_email,
+       user_pw
 FROM users
 WHERE user_email = '이메일' 
 	AND user_pw = '비밀번호'
@@ -150,9 +149,9 @@ AND disease_id = '변경하고 싶은 질병 ID';
 ```
 ```SQL
 SELECT user_name AS '이름',
-		 disease_name AS '변경된 질병명',
-		 disease_info AS '변경된 질병 정보',
-		 disease_effect AS '변경된 질병 효과'
+       disease_name AS '변경된 질병명',
+       disease_info AS '변경된 질병 정보',
+       disease_effect AS '변경된 질병 효과'
 FROM users u 
 	  INNER JOIN user_diseases u_d   
 	  ON u.user_id = u_d.user_id
