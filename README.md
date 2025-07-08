@@ -535,9 +535,18 @@ WHERE user_name = '홍길동';
 ###### 성향 변경 후
 ![성향 변경 후](https://github.com/user-attachments/assets/bdbc7ed1-a6ee-4476-97e4-65a6be7321f6)
 
-#### 회원 탈퇴 (요구사항 코드 : member-007)
-![회원 탈퇴 전]![image](https://github.com/user-attachments/assets/f1aeb06d-15be-4c93-ae2c-627772fa44e3)
+#### 회원 탈퇴 (요구사항 코드 : member-005)
+###### 회원 탈퇴 전
+![회원 탈퇴 전](https://github.com/user-attachments/assets/f1aeb06d-15be-4c93-ae2c-627772fa44e3)
 
+###### 회원 탈퇴 후
+![회원 탈퇴 후](htps://github.com/user-attachments/assets/f0f847dd-519f-4b38-9307-4edd1cc91aeb)
+
+#### 자신의 등록 정보 조회 (요구사항 코드 : member-006)
+![image](https://github.com/user-attachments/assets/9f98093a-5198-4dda-9bb8-dff942480be0)
+
+#### 자신의 관심 상품 / 재료 / 질병 조회 (요구사항 코드 : member-007)
+![image](https://github.com/user-attachments/assets/2b669296-0c59-4891-ad8a-46799f09c824)
 
 #### 질환 검색 (요구사항 코드 : disease-001,002,003)
 <img width="720" alt="스크린샷 2025-07-08 오후 5 53 07" src="https://github.com/user-attachments/assets/4af3cb8b-b322-496f-823d-4996e0d39cf6" />
