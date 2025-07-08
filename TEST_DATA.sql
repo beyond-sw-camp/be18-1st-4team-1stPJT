@@ -570,7 +570,7 @@ INSERT INTO life_styles (life_style_name, enrolled_id) VALUES
 ('에너지 음료 애호가', @chosw_id);
 
 # user_diseases insert
-INSERT INTO user_diseases (user_id, diseases_id) VALUES
+INSERT INTO user_diseases (user_id, disease_id) VALUES
 (@hong_id, 1),
 (@hong_id, 5),
 (@mong_id, 2),
@@ -809,7 +809,7 @@ INSERT INTO product_ingredients (product_id, ingr_id, enrolled_id) VALUES
 
 
 # ingredient_diseases insert
-INSERT INTO ingredient_diseases(ingr_id, diseases_id, `description`, reference_source, `type`, enrolled_id) VALUES
+INSERT INTO ingredient_diseases(ingr_id, disease_id, `description`, reference_source, `type`, enrolled_id) VALUES
 (1, 1, '마데카소사이드는 아토피 피부 개선에 도움.', 'https://ncbi.nlm.nih.gov/pubmed/24640902', 'good', @chosw_id),
 (1, 6, '마데카소사이드는 습진 피부 진정에 도움.', 'https://ncbi.nlm.nih.gov/pubmed/24640902', 'good', @kimtg_id),
 (2, 5, '니아신아마이드는 여드름 개선에 도움.', 'https://ewg.org', 'good', @sonhw_id),
@@ -867,15 +867,7 @@ INSERT INTO ingredient_diseases(ingr_id, diseases_id, `description`, reference_s
 (44, 5, '폴리글리세릴-10라우레이트는 여드름 피부에 안전.', 'https://ewg.org', 'good', @chosw_id),
 (45, 8, '소듐클로라이드는 위염 환자에 과량 주의.', 'https://ewg.org', 'bad', @kimtg_id),
 (46, 5, '부틸렌글라이콜은 여드름 피부 안전.', 'https://ewg.org', 'good', @sonhw_id),
-(47, 6, '디메치콘은 습진 피부에도 안전.', 'https://ewg.org', 'good', @yoondk_id),
-(1, 1, '설탕은 당뇨병 악화 가능.', 'https://ewg.org', 'bad', @limst_id),
-(2, 2, '소금은 고혈압 위험을 높임.', 'https://ewg.org', 'bad', @limst_id),
-(3, 4, '포도당은 비만 유발 가능.', 'https://ewg.org', 'bad', @chosw_id),
-(5, 2, '카페인은 혈압 상승 유발.', 'https://ewg.org', 'bad', @kimtg_id),
-(5, 5, '카페인은 위염에 영향 적음.', 'https://ewg.org', 'good', @sonhw_id),
-(10, 5, '타우린은 위 점막 보호에 도움.', 'https://ewg.org', 'good', @yoondk_id),
-(11, 4, '비타민C는 비만 예방 도움.', 'https://ewg.org', 'good', @limst_id),
-(14, 1, 'D-소비톨은 당뇨병 환자에게 저칼로리 대체감미료.', 'https://ewg.org', 'good', @limst_id);
+(47, 6, '디메치콘은 습진 피부에도 안전.', 'https://ewg.org', 'good', @yoondk_id);
 
 
 #life_style_ingredients insert
