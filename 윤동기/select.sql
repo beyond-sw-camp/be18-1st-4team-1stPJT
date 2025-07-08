@@ -329,3 +329,11 @@ WHERE life_style_ingredients_id = 1
 ;
 
 
+-- 질병 명 검색
+SELECT *
+FROM diseases AS d
+INNER JOIN ingredient_diseases AS i_d ON d.disease_id = i_d.disease_id
+INNER JOIN ingredients AS i ON i_d.ingr_id = i.ingr_id
+WHERE d.disease_name = '검색값'
+
+
