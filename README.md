@@ -501,5 +501,38 @@ WHERE users = '유저 아이디';
 
 <details>
 	<summary>Test Case</summary>
-#### test
+
+#### 회원가입 (요구사항 코드: member-001)
+![스크린샷 2025-07-08 170719](https://github.com/user-attachments/assets/b4059401-b039-4ef3-994a-5592f0f164ce)
+
+#### 로그인 (요구사항 코드: member-002)
+![스크린샷 2025-07-08 171021](https://github.com/user-attachments/assets/190b67b3-836f-437d-a8af-9922b412cc92)
+
+#### 회원정보수정 (요구사항 코드: member-004)
+##### 이메일 변경
+![스크린샷 2025-07-08 171230](https://github.com/user-attachments/assets/5ada453c-53cb-431c-9d31-9d12fa931a5e)
+
+##### 비밀번호 변경
+![스크린샷 2025-07-08 171417](https://github.com/user-attachments/assets/ff110df7-6fa5-4eb9-ab2e-59076bce6069)
+
+##### 질병 정보 변경
+###### 질병 정보 변경 전
+![질병 정보 변경 전](https://github.com/user-attachments/assets/4bfb5882-2556-4aa3-97f2-3a92d14155f9)
+###### 질병 정보 변경 후
+![질병 정보 변경 후](https://github.com/user-attachments/assets/d4c7b926-22ca-43df-b877-bebe3d25fcb6)
+
+
+##### 즐겨찾기 변경
+###### 즐겨찾기 변경 전
+![즐겨찾기 변경 전](https://github.com/user-attachments/assets/f15aa15e-20cc-4e98-88ed-f62a4f110c80)
+###### 즐겨찾기 변경 후
+![즐겨찾기 변경 후](https://github.com/user-attachments/assets/96cd88ca-01cc-4f0d-aab3-15b2b87629c4)
+
+##### 성향 변경
+###### 성향 변경 전
+![성향 변경 전](https://github.com/user-attachments/assets/13452702-9ba7-46eb-bbcf-bcb819f7a5a8)
+###### 성향 변경 후
+![성향 변경 후](https://github.com/user-attachments/assets/bdbc7ed1-a6ee-4476-97e4-65a6be7321f6)
+
+
 </details>
