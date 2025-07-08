@@ -139,7 +139,7 @@ SELECT ngr_name,
 		 safety_rating,
 		 reference_source
 FROM ingredients
-WHERE i.ingr_name = '성분명'
+WHERE ingr_name = '성분명'
 ;
 
 
