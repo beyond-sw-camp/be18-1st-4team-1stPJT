@@ -140,7 +140,7 @@ SELECT ngr_name,
 		 reference_source
 FROM ingredients
 WHERE i.ingr_name = '성분명'
-
+;
 
 
 -- 제품 검색 product-001,2,3,4
