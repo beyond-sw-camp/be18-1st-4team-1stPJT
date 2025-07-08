@@ -23,9 +23,28 @@ SET user_pw = '변경할 비밀번호'
 WHERE user_email = '이메일' AND user_pw = '비밀번호' AND is_deleted = FALSE;
 
 -- 질병 정보 변경
-UPDATE user_diseases
-SET diseases_id = '변경 후 질병 id'
-WHERE user_email = '이메일' AND user_pw = '비밀번호' AND diseases_id = '기존 질병 id';
+SELECT disease_id
+INTO @new_disease_id
+FROM diseases
+WHERE disease_name = '변경 후 질병명';
+
+UPDATE users u 
+		 INNER JOIN user_diseases u_d ON u.user_id = u_d.user_id
+		 INNER JOIN diseases d_old ON d_old.disease_id = u_d.diseases_id
+SET u_d.diseases_id = @new_disease_id
+WHERE user_email = '이메일' 
+		AND user_pw = '비밀번호'
+  		AND d_old.disease_name = '변경전 질병명';
+
+SELECT user_name AS '이름',
+		 disease_name AS '변경된 질병명',
+		 disease_info AS '변경된 질병 정보',
+		 disease_effect AS '변경된 질병 효과'
+FROM users u 
+	  INNER JOIN user_diseases u_d ON u.user_id = u_d.user_id
+	  INNER JOIN diseases d ON d.disease_id = u_d.diseases_id
+WHERE user_email = '이메일', 
+		AND user_pw = '비밀번호';
 
 -- 즐겨찾기 변경
 UPDATE user_favorites
