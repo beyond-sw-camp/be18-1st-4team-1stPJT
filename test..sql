@@ -158,7 +158,7 @@ WHERE p.product_name = '제품명'
 SELECT p.brand_name,
 		 p.product_name,
 		 p.category, 
-		 p.img_url, 
+		 p.img_url
 FROM products AS p
 WHERE p.brand_name = '브랜드명'
 ;
@@ -171,7 +171,7 @@ SELECT p.product_name,
 		 p.category,
 		 p.img_url,
 		 i.ingr_name,
-		 i_d.type,
+		 i_d.type
 FROM products AS p
 LEFT JOIN product_ingredients AS p_i
 	ON p.product_id = p_i.product_id
@@ -377,44 +377,56 @@ START TRANSACTION;
     
     
 -- 성분 추가 admin-001
--- 성분 추가
 INSERT INTO ingredients(
 	ingr_name,
 	`description`,
 	functionality, 
-	`usage`, potential_risks, 
+	`usage`,
+	potential_risks, 
 	safety_rating, 
 	reference_source, 
 	enrolled_id,
 	reg_date,
 	update_date)
 VALUES (
-	'설탕', 
-	'단맛을 내는 당류.', 
-	'감미, 보존', 
-	'식품 전반', 
-	'과다 섭취 시 당뇨 위험', 
-	'EWG 3', 
-	'https://www.ewg.org', 
-	@choyj_id,
+	'테스트 성분', 
+	'테스트 성분 설명.', 
+	'테스트 성분 기능', 
+	'테스트 성분 용도', 
+	'테스트 성분 잠재적 위험성', 
+	'테스트 성분 위험 등급EWG 3', 
+	'테스트url : https://www.ewg.org', 
+	@yoondk_id,
 	CURRENT_TIMESTAMP,
 	CURRENT_TIMESTAMP)
 ;
+
+SELECT *
+FROM ingredients
+WHERE ingr_name = '테스트 성분'
+;
+
 -- 성분 삭제 admin-002
 
 DELETE 
 FROM ingredients
-WHERE ingr_id = 1
+WHERE ingr_id = 70
 ;
 
 -- 성분 업데이트 admin-003
 UPDATE ingredients
 SET ingr_name = '설탕탕',
 	 `description` = '설탕보다 더 달아',
-	 enrolled_id = @yoondk_id
+	 enrolled_id = @yoondk_id,
 	 update_date = CURRENT_TIMESTAMP
-WHERE ingr_id = 1
+WHERE ingr_id = 71
 ;
+
+SELECT *
+FROM ingredients
+WHERE ingr_name = '설탕탕'
+;
+
 -- 제품 추가 admin-004
 INSERT INTO products (
 	product_name, 
@@ -425,27 +437,34 @@ INSERT INTO products (
 	reg_date, 
 	update_date) 
 VALUES (
-	'펩시 라임', 
-	'Pepsi', 
-	'Beverage', 
-	'https://pepsi.com/lime.jpg', 
-	@choyj_id, 
+	'테스트 제품 이름', 
+	'테스트 제품 브랜드', 
+	'테스트 제품 카테고리', 
+	'테스트 url : https://pepsi.com/lime.jpg', 
+	@yoondk_id,
 	CURRENT_TIMESTAMP,
 	CURRENT_TIMESTAMP)
+;
+
+SELECT *
+FROM products
+WHERE product_name = '테스트 제품 이름'
 ;
 -- 제품 삭제 admin-005
 DELETE 
 FROM products
-WHERE product_id = 1
+WHERE product_id = 280
 ;
 -- 제품 업데이트 admin-006
 UPDATE products
 SET product_name = '펩시 진짜 라임',
-	 brand_name = 'Pepssssssi'
-	 enrolled_id = @yoondk_id
+	 brand_name = 'Pepssssssi',
+	 enrolled_id = @yoondk_id,
 	 update_date = CURRENT_TIMESTAMP
-WHERE ingr_id = 1
+WHERE product_id = 281
 ;
+
+
 -- 질병 추가 admin-007
 INSERT INTO diseases (
 	disease_name, 
@@ -455,26 +474,38 @@ INSERT INTO diseases (
 	reg_date,
 	update_date) 
 VALUES (
-	'아토피 피부염', 
-	'만성 염증성 피부질환으로 피부 장벽 손상과 가려움, 염증이 동반된다.', 
-	'가려움, 건조함, 염증', 
-	@chosw_id,
+	'테스트 질병', 
+	'테스트 질병 정보', 
+	'테스트 질병 증상', 
+	@yoondk_id,
 	CURRENT_TIMESTAMP,
 	CURRENT_TIMESTAMP)
+;
+
+SELECT *
+FROM diseases
+WHERE disease_name = '테스트 질병'
 ;
 -- 질병 삭제 admin-008
 DELETE 
 FROM diseases
-WHERE disease_id = 1
+WHERE disease_id = 90
 ;
 -- 질병 업데이트 admin-009
 UPDATE diseases
-SET disease_name = '아토피'
-	 disease_effect = '엄청 가려움'
-	 enrolled_id = @yoondk_id
+SET disease_name = '아토피',
+	 disease_effect = '엄청 가려움',
+	 enrolled_id = @yoondk_id,
 	 update_date = CURRENT_TIMESTAMP
-WHERE disease_id = 1
+WHERE disease_id = 91
 ;
+
+SELECT *
+FROM diseases
+WHERE disease_name = '아토피'
+;
+
+
 -- 라이프스타일 추가 admin-010
 INSERT INTO life_styles (
 	life_style_name, 
@@ -482,23 +513,34 @@ INSERT INTO life_styles (
 	reg_date,
 	update_date) 
 VALUES (
-	'비건', 
+	'테스트 라스', 
 	@chosw_id,
 	CURRENT_TIMESTAMP,
 	CURRENT_TIMESTAMP)
 ;
+
+SELECT *
+FROM life_styles
+WHERE life_style_name = '테스트 라스'
+;
 -- 라이프스타일 삭제 admin-011
 DELETE 
 FROM life_styles
-WHERE life_style_id = 1
+WHERE life_style_id = 14
 ;
 -- 라이프스타일 업데이트 admin-012
 UPDATE life_styles
-SET life_style_name = '슈퍼비건'
-	 enrolled_id = @yoondk_id
+SET life_style_name = '슈퍼비건',
+	 enrolled_id = @yoondk_id,
 	 update_date = CURRENT_TIMESTAMP
-WHERE disease_id = 1
+WHERE life_style_id = 15
 ;
+
+SELECT *
+FROM life_styles
+WHERE life_style_name = '슈퍼비건'
+;
+
 
 -- 제품 성분 관계 추가 admin-013    
 INSERT INTO product_ingredients (
