@@ -115,7 +115,7 @@ INNER JOIN user_life_styles u_l
 	ON u.user_id = u_l.user_id
 INNER JOIN life_styles l
 	ON u_l.life_style_id = l.life_style_id
-WHERE user_id = 'input_id';
+WHERE u.user_id = 'input_id';
 
 -- 마이페이지 (즐겨찾기) member-007 (조인문 수정)
 SELECT f.user_id,
