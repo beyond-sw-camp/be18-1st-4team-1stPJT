@@ -120,21 +120,6 @@ CREATE TABLE life_style_ingredients (
     FOREIGN KEY (enrolled_id)   REFERENCES users(user_id)
 );
 
-CREATE TABLE ingredient_disease (
-	ingredient_diseases_id			BIGINT AUTO_INCREMENT PRIMARY KEY,                 -- 성분-질병 관계 ID
-	ingr_id 				BIGINT 		NOT NULL, 	  	    -- 성분 ID
-	diseases_id 				BIGINT 		NOT NULL,		    -- 질병 ID
-	`description` 				BIGINT 		NOT NULL,                   -- 설명
-	reference_source 			TEXT,					    -- 출처
-	`type` 					VARCHAR(20)     NOT NULL,	  	    -- 성분-질병 관계
-	enrolled_id 				UUID 		NOT NULL,	            -- 등록자 ID			
-	reg_date 				DATETIME 	DEFAULT CURRENT_TIMESTAMP,  -- 등록 일자
-	update_date 				DATETIME 	DEFAULT CURRENT_TIMESTAMP,  -- 수정 일자
-	
-	FOREIGN KEY (ingr_id) 	  REFERENCES ingredients(ingr_id),
-	FOREIGN KEY (diseases_id) REFERENCES diseases(disease_id)
-);	
-
 CREATE TABLE user_life_styles (
 	user_life_styles BIGINT		       AUTO_INCREMENT PRIMARY KEY,  -- 유저 라이프 스타일 ID
 	user_id 	 UUID,						    -- 유저 ID
