@@ -104,14 +104,14 @@ CREATE TABLE `users`(
 <details>
 	<summary>DDL</summary>
 
-#### 회원가입(요구사항 코드: member-001)
+#### 회원가입 (요구사항 코드: member-001)
 ```SQL
 INSERT INTO users
 (user_id, user_name, user_pw, user_email, user_nickname, reg_date, update_date)
 VALUES (UUID(), '이름', '비밀번호', '이메일', '닉네임', NOW(), NOW());
 ```
 
-#### 로그인(요구사항 코드: member-002)
+#### 로그인 (요구사항 코드: member-002)
 ```SQL
 SELECT user_email,
        user_pw
@@ -121,7 +121,7 @@ WHERE user_email = '이메일'
 	AND is_deleted = FALSE;
 ```
 
-#### 회원정보수정(요구사항 코드: member-004)
+#### 회원정보수정 (요구사항 코드: member-004)
 ##### 이메일 변경
 ```SQL
 UPDATE users 
