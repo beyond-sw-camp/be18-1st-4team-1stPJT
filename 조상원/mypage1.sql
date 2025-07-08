@@ -18,15 +18,22 @@ WHERE user_email = '이메일'
 -- 이메일 수정
 UPDATE users 
 SET user_email = '변경할 이메일' 
-WHERE user_email = '이메일' AND user_pw = '비밀번호' AND is_deleted = FALSE;
+WHERE user_email = '이메일' 
+      AND user_pw = '비밀번호' 
+      AND is_deleted = FALSE;
 
 -- 비밀번호 변경
 UPDATE users 
 SET user_pw = '변경할 비밀번호' 
-WHERE user_email = '이메일' AND user_pw = '비밀번호' AND is_deleted = FALSE;
+WHERE user_email = '이메일' 
+      AND user_pw = '비밀번호' 
+      AND is_deleted = FALSE;
 
 -- 질병 정보 변경
-UPDATE user_diseases u SET disease_id = '변경할 질병 id' WHERE user_id = '사용자 id';
+UPDATE user_diseases u 
+SET disease_id = '변경할 질병 id' 
+WHERE user_id = '사용자 id';
+
 SELECT user_name AS '이름',
 		 disease_name AS '변경된 질병명',
 		 disease_info AS '변경된 질병 정보',
