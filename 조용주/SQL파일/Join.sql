@@ -129,27 +129,33 @@ SELECT
 FROM life_styles ls
 JOIN user u ON ls.enrolled_id = u.user_id;
 
---
+-- 사용자는 질병명을 직접 입력하여 검색할 수 있다.
 SELECT diseases_name
 from diseases
 WHERE diseases_name like '%암%';
 
+-- 검색 결과는 질병 설명, 증상, 좋은 성분, 기피해야 할 성분, 주의 사항에 대한 요약된 정보를 터치하여 볼 수 있는 항목으로 구분지어 제공
 SELECT disease_info, disease_effect, good_ingredient, precautions, bad_ingredient
 FROM diseases
 WHERE diseases_name LIKE '%암%';
 
+-- 검색 결과의 항목 중 하나를 선택하면, 해당 내용의 상세한 정보를 제공
 SELECT Detailed_information
 from diseases
 WHERE diseases_name like '%암%';
 
+-- 사용자가 등록한 알레르기 유발 성분이 포함되어 있을 경우, 해당 성분을 명확하게 강조(색상, 아이콘 등)하고 경고 알림을 제공.
 SELECT description ,Emphasis
 from ingredients
 WHERE ingr_name like '땅콩';
 
+-- 사용자의 건강 목표/라이프스타일과 관련된 성분(선호/기피)이 포함되어 있을 경우, 해당 성분을 표시하고 관련 정보를 제공.
 SELECT life_style_name , Information
 from life_styles
-WHERE life_style_name like '비건';
+WHERE life_style_name like '비건'
+	AND Information IS NOT NULL;
 
+-- 사용자의 알레르기/건강 목표에 따라 피해야 할 성분이 포함된 제품에 대한 대체 제품을 추천.
 SELECT life_style_name, Recommendation
 FROM life_styles
 WHERE life_style_name LIKE '비건'
