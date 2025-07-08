@@ -215,9 +215,11 @@ LEFT JOIN ingredient i ON i.ingr_id = ind.ingr_id
 WHERE disease_name LIKE '%암%';
 
 -- 사용자가 등록한 알레르기 유발 성분이 포함되어 있을 경우, 해당 성분을 명확하게 강조(색상, 아이콘 등)하고 경고 알림을 제공.
-SELECT description ,safety_rating
-from ingredient
-WHERE ingr_name like '땅콩';
+SELECT i.description ,i.safety_rating
+from ingredient i
+LEFT JOIN ingredient_disease id ON id.ingr_id = i.ingr_id
+LEFT JOIN user_disease ud ON ud.disease_id = id.disease_id
+WHERE ingredient = '유저 아이디';
 
 -- 사용자의 건강 목표/라이프스타일과 관련된 성분(선호/기피)이 포함되어 있을 경우, 해당 성분을 표시하고 관련 정보를 제공.
 SELECT life_style_name , type
