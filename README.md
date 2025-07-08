@@ -111,7 +111,7 @@ INSERT INTO users
 VALUES (UUID(), '이름', '비밀번호', '이메일', '닉네임', NOW(), NOW());
 ```
 
-#### 회원가입(요구사항 코드: member-002)
+#### 로그인(요구사항 코드: member-002)
 ```SQL
 SELECT user_email,
        user_pw
