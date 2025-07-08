@@ -130,41 +130,57 @@ INNER JOIN ingredient i
 WHERE f.user_id = 'input_id';
 
 -- 성분 검색 ingredient-001,2,3,4(조인문 수정 및 질병 추가)
-SELECT
-	ingr_name,
-	`description`, 	
-	safety_rating,
-	p.product_name
-FROM ingredients AS i
-INNER JOIN product_ingredients AS p_i
-	ON i.ingr_id = p_i.ingr_id
-INNER JOIN product AS p
-	ON p.product_id = p_i.product_id
+
+SELECT ngr_name,
+		 `description`,
+		 functionality,
+		 `usage`, 	
+		 potential_risks, 
+		 safety_rating,
+		 reference_source
+FROM ingredients
 WHERE i.ingr_name = '성분명'
-;
 
 
 
 -- 제품 검색 product-001,2,3,4
+-- [product-002] 표시
+-- 1. 제품 명 검색으로 제품명, 브랜드, 카테고리,  이미지 검색
 SELECT p.product_name,
 		 p.brand_name,
 		 p.category, 
 		 p.img_url
 FROM products AS p
-LEFT JOIN product_ingredients AS p_i ON p.product_id = p_i.product_id
-LEFT JOIN ingredients AS i ON p_i.ingr_id = i.ingr_id
 WHERE p.product_name = '제품명'
 ;
 
-SELECT p.product_name,
-		 p.brand_name,
+-- 2. 브랜드 명 검색으로 제품명, 브랜드, 카테고리,  이미지 검색
+SELECT p.brand_name,
+		 p.product_name,
 		 p.category, 
 		 p.img_url, 
-		 i.ingr_id
+		 i.ingr_name
 FROM products AS p
-INNER JOIN product_ingredients AS p_i ON p.product_id = p_i.product_id
-INNER JOIN ingredients AS i ON p_i.ingr_id = i.ingr_id
-WHERE p.product_name = '브랜드명'
+WHERE p.brand_name = '브랜드명'
+;
+
+-- [product-003] 상세 표시
+-- 제품 명 검색으로 재품명, 브랜드, 카테고리,  이미지, 포함성분,
+-- 해당 제품의 알러지 주의 표시 확인 가능.
+SELECT p.product_name,
+		 p.brand_name,
+		 p.category,
+		 p.img_url,
+		 i.ingr_name,
+		 i_d.type,
+FROM products AS p
+LEFT JOIN product_ingredients AS p_i
+	ON p.product_id = p_i.product_id
+LEFT JOIN ingredients AS i 
+	ON p_i.ingr_id = i.ingr_id
+LEFT JOIN ingredient_diseases AS i_d
+	ON i.ingr_id = i_d.ingr_id
+WHERE p.product_name = '제품명' AND i_d.type = 'good'
 ;
 
 
