@@ -311,7 +311,7 @@ SET product_name = '펩시 진짜 라임',
 	 brand_name = 'Pepssssssi'
 	 enrolled_id = @yoondk_id
 	 update_date = CURRENT_TIMESTAMP
-WHERE ingr_id = 1
+WHERE product_id = 1
 ;
 
 
@@ -372,7 +372,7 @@ UPDATE life_styles
 SET life_style_name = '슈퍼비건'
 	 enrolled_id = @yoondk_id
 	 update_date = CURRENT_TIMESTAMP
-WHERE disease_id = 1
+WHERE life_style_id = 1
 ;
 	
 -- member-005 회원 정보와 관련된 데이터들 삭제(사용자 알러지 정보, 즐겨찾기, 성향 등)
