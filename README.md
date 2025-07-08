@@ -194,4 +194,64 @@ INNER JOIN life_styles l
 ON l.life_style_id = u_l.life_style_id   
 WHERE user_id = '사용자 ID';
 ```
+
+##### 질환 검색 (요구사항 코드 : disease-001,002,003)
+```SQL
+SELECT d.disease_info,
+		 d.disease_effect,
+		 d.precautions,
+		 ind.type,
+		 i.ingr_name
+FROM disease d 
+LEFT JOIN ingredient_disease ind
+	ON ind.disease_id = d.disease_id
+LEFT JOIN ingredient i
+	ON i.ingr_id = ind.ingr_id
+WHERE disease_name LIKE '%암%';
+```
+
+##### 위험 표시 (요구사항 코드 : user-product-001)
+```SQL
+SELECT i.description,
+	   i.safety_rating
+from ingredient i
+LEFT JOIN ingredient_disease id 
+	ON id.ingr_id = i.ingr_id
+LEFT JOIN user_disease ud 
+	ON ud.disease_id = id.disease_id
+LEFT JOIN users u 
+	ON u.user_id = ud.user_id
+WHERE users = '유저 아이디';
+```
+
+##### 사용자 라이프 스타일 위험 표시 (요구사항 코드 : user-product-002)
+```SQL
+SELECT l.life_style_name , 
+	   lsi.`type`
+from life_style l
+LEFT JOIN life_style_ingredient lsi 
+	ON lsi.life_style_ingr_id = l.life_style_id
+LEFT JOIN user_life_style uls 
+	ON uls.life_style_id = l.life_style_id
+LEFT JOIN users u 
+	ON u.user_id = uls.user_id
+WHERE users = '유저 아이디';
+```
+
+##### 추천 (요구사항 코드 : user-product-003)
+```SQL
+SELECT l.life_style_name,
+	   i.ingr_name, 
+	    `type` 
+FROM life_style l
+LEFT JOIN life_style_ingredient lsi 
+	ON lsi.life_style_id = l.life_style_id
+LEFT JOIN ingredient i 
+	ON i.ingr_id = lsi.ingr_id
+LEFT JOIN user_life_style uls 
+	ON uls.life_style_id = l.life_style_id
+LEFT JOIN users u 
+	ON u.user_id = uls.user_id
+WHERE users = '유저 아이디';
+```
 </details>
