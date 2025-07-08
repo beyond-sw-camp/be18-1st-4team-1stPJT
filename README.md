@@ -1,6 +1,6 @@
 # ![header](https://capsule-render.vercel.app/api?type=waving&color=auto&height=300&section=header&text=Ingredient_CheckIT&fontSize=90)
 
-## 목차
+## 👀목차
 1. [팀원](#팀원)
 2. [프로젝트 개요](#프로젝트-개요)  
 	2.1 [💡배경](#배경)  
