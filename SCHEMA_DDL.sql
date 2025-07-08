@@ -128,7 +128,7 @@ CREATE TABLE `ingredient_diseases`(
 	
 	-- 제약 조건
 	CONSTRAINT PRIMARY KEY (ingredient_diseases_id),
-	CONSTRAINT uq_ingredient_diseases UNIQUE (ingr_id, diseases_id),
+	CONSTRAINT uq_ingredient_diseases UNIQUE (ingr_id, disease_id),
 	CONSTRAINT fk_ingredient_diseases_enrolled_id FOREIGN KEY (enrolled_id) REFERENCES users(user_id),
 	CONSTRAINT fk_ingredient_diseases_ingr_id FOREIGN KEY (ingr_id) REFERENCES ingredients(ingr_id),
 	CONSTRAINT fk_ingredient_diseases_disease_id FOREIGN KEY (disease_id) REFERENCES diseases(disease_id),
@@ -164,7 +164,7 @@ CREATE TABLE `user_diseases`(
 	
 	-- 제약 조건
 	CONSTRAINT PRIMARY KEY (user_diseases_id),
-	CONSTRAINT uq_user_diseases UNIQUE (user_id, diseases_id),
+	CONSTRAINT uq_user_diseases UNIQUE (user_id, disease_id),
 	CONSTRAINT fk_user_diseases_user_id FOREIGN KEY (user_id) REFERENCES users(user_id),
 	CONSTRAINT fk_user_diseases_diseases_id FOREIGN KEY (disease_id) REFERENCES diseases(disease_id)
 );
