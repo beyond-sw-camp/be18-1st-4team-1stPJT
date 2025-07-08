@@ -543,7 +543,7 @@ WHERE user_name = '홍길동';
 ![회원 탈퇴 후](htps://github.com/user-attachments/assets/f0f847dd-519f-4b38-9307-4edd1cc91aeb)
 
 #### 자신의 등록 정보 조회 (요구사항 코드 : member-006)
-![image](https://github.com/user-attachments/assets/9f98093a-5198-4dda-9bb8-dff942480be0)
+![image](https://github.com/user-attachments/assets/be7d90ce-25e5-486f-8eaf-55b1e72855d0)
 
 #### 자신의 관심 상품 / 재료 / 질병 조회 (요구사항 코드 : member-007)
 ![image](https://github.com/user-attachments/assets/2b669296-0c59-4891-ad8a-46799f09c824)
