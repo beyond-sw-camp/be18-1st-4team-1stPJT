@@ -169,8 +169,8 @@ AND item_id = '변경하고 싶은 즐겨찾기 대상 ID';
 ```
 ```SQL
 SELECT user_name AS '이름',
-		 item_id AS '변경된 즐겨찾기한 대상 아이템 ID',
-		 `type` AS '변경된 즐겨찾기 대상'
+       item_id AS '변경된 즐겨찾기한 대상 아이템 ID',
+       `type` AS '변경된 즐겨찾기 대상'
 FROM users u INNER JOIN user_favorites u_f  
 	     ON u.user_id = u_f.user_id
 WHERE u.user_id = '사용자 ID';
@@ -185,7 +185,7 @@ AND life_style_id = '변경하고 싶은 라이프스타일 ID';
 ```
 ```SQL
 SELECT user_name AS '이름',
-		 life_style_name AS '변경된 라이프스타일'
+       life_style_name AS '변경된 라이프스타일'
 FROM users u 
 	  INNER JOIN user_life_styles u_l  
 	  ON u.user_id = u_l.user_id  
