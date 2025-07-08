@@ -44,7 +44,7 @@ SELECT ngr_name,
 		 potential_risks, 
 		 safety_rating,
 		 reference_source
-FROM ingredients AS i
+FROM ingredients
 WHERE i.ingr_name = '성분명'
 
 
