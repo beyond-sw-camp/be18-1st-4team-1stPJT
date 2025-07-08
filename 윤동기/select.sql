@@ -55,8 +55,6 @@ SELECT p.product_name,
 		 p.category, 
 		 p.img_url
 FROM products AS p
-INNER JOIN product_ingredients AS p_i ON p.product_id = p_i.product_id
-INNER JOIN ingredients AS i ON p_i.ingr_id = i.ingr_id
 WHERE p.product_name = '제품명'
 ;
 
@@ -67,8 +65,6 @@ SELECT p.brand_name,
 		 p.img_url, 
 		 i.ingr_name
 FROM products AS p
-INNER JOIN product_ingredients AS p_i ON p.product_id = p_i.product_id
-INNER JOIN ingredients AS i ON p_i.ingr_id = i.ingr_id
 WHERE p.brand_name = '브랜드명'
 ;
 
