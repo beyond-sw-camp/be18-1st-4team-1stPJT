@@ -639,16 +639,100 @@ WHERE disease_id = 1
 ;
 
 -- 제품 성분 관계 추가 admin-013    
+INSERT INTO product_ingredients (
+	product_id, 
+	ingr_id, 
+	enrolled_id) 
+VALUES (
+	16,
+	7,
+	@yoondk_id)
+;
+
+
 -- 제품 성분 관계 삭제 admin-014
+DELETE 
+FROM product_ingredients
+WHERE product_ingredients_id = 1
+;
+
+
 -- 제품 성분 관계 업데이트 admin-015
+UPDATE product_ingredients
+SET product_id = 10
+	 ingr_id = 5
+	 enrolled_id = @yoondk_id
+	 update_date = CURRENT_TIMESTAMP
+WHERE product_ingredients_id = 1
+;
 
--- 성분 질병 추가 admin-013    
--- 성분 질병 관계 삭제 admin-014
--- 성분 질병 관계 업데이트 admin-015
 
--- 라이프 스타일 질병 관계 추가 admin-013    
--- 라이프 스타일 질병 관계 삭제 admin-014
--- 라이프 스타일 질병 관계 업데이트 admin-015
+-- 성분 질병 추가 admin-016
+INSERT INTO ingredient_diseases (
+	ingr_id, 
+	diseases_id, 
+	`description`, 
+	reference_source, 
+	`type`, 
+	enrolled_id)
+VALUES (
+	1, 
+	1, 
+	'마데카소사이드는 아토피 피부 개선에 도움.', 
+	'https://ncbi.nlm.nih.gov/pubmed/24640902', 
+	'good', 
+	@chosw_id)
+;
 
+
+-- 성분 질병 관계 삭제 admin-017
+DELETE 
+FROM ingredient_diseases
+WHERE ingredient_diseases_id = 1
+;
+
+
+-- 성분 질병 관계 업데이트 admin-018
+UPDATE ingredient_diseases
+SET ingr_id = 1
+	 disease_id = 1
+	 `description` = '새로운 설명 추가'
+	 reference_source = '출처 url 수정'
+	 enrolled_id = @yoondk_id
+	 update_date = CURRENT_TIMESTAMP
+WHERE ingredient_diseases_id = 1
+;
+
+
+-- 라이프 스타일 질병 관계 추가 admin-019  
+INSERT INTO life_style_ingredients (
+	life_style_id, 
+	ingr_id, 
+	`type`, 
+	enrolled_id)
+VALUES (
+	1, 
+	1, 
+	'good', 
+	@chosw_id)
+;
+
+
+-- 라이프 스타일 질병 관계 삭제 admin-020
+DELETE 
+FROM life_style_ingredients
+WHERE life_style_ingredients_id = 1
+;
+
+
+-- 라이프 스타일 질병 관계 업데이트 admin-021
+UPDATE life_style_ingredients
+SET life_style_id = 1
+	 ingr_id = 1
+	 `type` = 'bad' 
+	 enrolled_id = @yoondk_id
+	 update_date = CURRENT_TIMESTAMP
+WHERE life_style_ingredients_id = 1
+;
 
 		
