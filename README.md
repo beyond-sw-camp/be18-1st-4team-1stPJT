@@ -498,3 +498,8 @@ LEFT JOIN users u
 WHERE users = '유저 아이디';
 ```
 </details>
+
+<details>
+	<summary>Test Case</summary>
+#### test
+</details>
