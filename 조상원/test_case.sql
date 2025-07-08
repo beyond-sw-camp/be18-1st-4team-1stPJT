@@ -52,6 +52,23 @@ SET item_id = '즐겨찾기 후 아이템 아이디'
 WHERE user_email = '이메일' AND user_pw = '비밀번호' AND type = 'product/ingredient';
 
 -- 성향 변경
-UPDATE user_life_styles
-SET life_style_id = '변경 후 라이프스타일 id'
-WHERE user_email = '이메일' AND user_pw = '비밀번호' AND life_style_id = '변경 전 라이프스타일 id';
+SELECT life_style_id
+INTO @new_life_style_id
+FROM life_styles
+WHERE life_style_name = '변경 후 라이프스타일명';
+
+UPDATE users u 
+		 INNER JOIN user_life_styles u_l ON u.user_id = u_l.user_id
+		 INNER JOIN life_styles l_old ON l_old.life_style_id = u_l.life_style_id 
+SET u_l.life_style_id = @new_life_style_id
+WHERE user_email = '이메일' 
+		AND user_pw = '비밀번호'
+  		AND d_old.life_style_name = '변경 전 라이프스타일명';
+
+SELECT user_name AS '이름',
+		 life_style_name AS '변경된 라이프스타일'
+FROM users u 
+	  INNER JOIN user_life_styles u_l ON u.user_id = u_l.user_id
+	  INNER JOIN life_styles l ON l.life_style_id = u_l.life_style_id 
+WHERE user_email = '이메일', 
+		AND user_pw = '비밀번호';
