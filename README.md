@@ -147,7 +147,8 @@ UPDATE user_diseases
 SET disease_id = '변경할 질병 ID' 
 WHERE user_id = '사용자 ID'
 AND disease_id = '변경하고 싶은 질병 ID';
-
+```
+```SQL
 SELECT user_name AS '이름',
 		 disease_name AS '변경된 질병명',
 		 disease_info AS '변경된 질병 정보',
@@ -164,7 +165,8 @@ UPDATE user_favorites
 SET item_id = '변경할 즐겨찾기 대상 ID'
 WHERE user_id = '사용자 ID'
 AND item_id = '변경하고 싶은 즐겨찾기 대상 ID';
-
+```
+```SQL
 SELECT user_name AS '이름',
 		 item_id AS '변경된 즐겨찾기한 대상 아이템 ID',
 		 `type` AS '변경된 즐겨찾기 대상'
@@ -178,12 +180,15 @@ UPDATE user_life_styles
 SET life_style_id = '변경할 라이프스타일 ID'
 WHERE user_id = '사용자 ID'
 AND life_style_id = '변경하고 싶은 라이프스타일 ID';
-
+```
+```SQL
 SELECT user_name AS '이름',
 		 life_style_name AS '변경된 라이프스타일'
 FROM users u 
-	  INNER JOIN user_life_styles u_l ON u.user_id = u_l.user_id
-	  INNER JOIN life_styles l ON l.life_style_id = u_l.life_style_id 
+	  INNER JOIN user_life_styles u_l
+	  ON u.user_id = u_l.user_id
+	  INNER JOIN life_styles l
+ 	  ON l.life_style_id = u_l.life_style_id 
 WHERE user_id = '사용자 ID';
 ```
 </details>
