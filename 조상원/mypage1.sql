@@ -30,7 +30,7 @@ WHERE user_email = '이메일'
       AND is_deleted = FALSE;
 
 -- 질병 정보 변경
-UPDATE user_diseases u 
+UPDATE user_diseases
 SET disease_id = '변경할 질병 id' 
 WHERE user_id = '사용자 id';
 
