@@ -1,4 +1,4 @@
-# Ingredient-CheckIT
+# ![header](https://capsule-render.vercel.app/api?type=rect&color=auto&height=300&section=header&text=Ingredient_%20CheckIT&fontSize=90
 
 ## 목차
 1. [팀원](#팀원)
