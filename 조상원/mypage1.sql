@@ -32,7 +32,8 @@ WHERE user_email = '이메일'
 -- 질병 정보 변경
 UPDATE user_diseases
 SET disease_id = '변경할 질병 ID' 
-WHERE user_id = '사용자 ID';
+WHERE user_id = '사용자 ID'
+AND disease_id = '변경하고 싶은 질병 ID';
 
 SELECT user_name AS '이름',
 		 disease_name AS '변경된 질병명',
@@ -46,7 +47,8 @@ WHERE user_id = '사용자 ID';
 -- 즐겨찾기 변경
 UPDATE user_favorites
 SET item_id = '변경할 즐겨찾기 대상 ID'
-WHERE user_id = '사용자 ID';
+WHERE user_id = '사용자 ID'
+AND item_id = '변경하고 싶은 즐겨찾기 대상 ID';
 
 SELECT user_name AS '이름',
 		 item_id AS '변경된 즐겨찾기한 대상 아이템 ID',
@@ -57,7 +59,8 @@ WHERE u.user_id = '사용자 ID';
 -- 성향 변경
 UPDATE user_life_styles
 SET life_style_id = '변경할 라이프스타일 ID'
-WHERE user_id = '사용자 ID';
+WHERE user_id = '사용자 ID'
+AND life_style_id = '변경하고 싶은 라이프스타일 ID';
 
 SELECT user_name AS '이름',
 		 life_style_name AS '변경된 라이프스타일'
