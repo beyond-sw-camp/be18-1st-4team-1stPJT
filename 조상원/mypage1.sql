@@ -1,8 +1,9 @@
+-- [member-001]
 -- 사용자가 개인정보 입력하여 회원가입
 -- 이름, 비밀번호, 이메일, 닉네임
 INSERT INTO users(user_id, user_name, user_pw, user_email, user_nickname, reg_date, update_date) 
        VALUES(UUID(), '이름', '비밀번호', '이메일', '닉네임', NOW(), NOW());
-
+-- [member-002]
 -- 사용자가 ID, 비밀번호 입력해서 로그인
 SELECT user_email,
        user_pw
@@ -10,7 +11,7 @@ FROM users
 WHERE user_email = '이메일' 
       AND user_pw = '비밀번호'
       AND is_deleted = FALSE;
-
+-- [member-004]
 -- 로그인 후 마이 페이지 - 회원정보 수정 페이지에서 정보 수정
 -- 이메일 수정
 UPDATE users 
