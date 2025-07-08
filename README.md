@@ -536,15 +536,16 @@ WHERE user_name = '홍길동';
 ![성향 변경 후](https://github.com/user-attachments/assets/bdbc7ed1-a6ee-4476-97e4-65a6be7321f6)
 
 #### 질환 검색 (요구사항 코드 : disease-001,002,003)
-<img width="716" alt="스크린샷 2025-07-08 오후 5 38 48" src="https://github.com/user-attachments/assets/5ead4d80-f2bb-4551-8100-3e0885d367ad" />
+<img width="720" alt="스크린샷 2025-07-08 오후 5 53 07" src="https://github.com/user-attachments/assets/4af3cb8b-b322-496f-823d-4996e0d39cf6" />
 
 #### 위험 표시 (요구사항 코드 : user-product-001)
-<img width="477" alt="스크린샷 2025-07-08 오후 5 40 03" src="https://github.com/user-attachments/assets/afde1612-55a6-4cbd-a2b4-57fe72c26337" />
+<img width="460" alt="스크린샷 2025-07-08 오후 5 53 27" src="https://github.com/user-attachments/assets/09dde48c-6aac-4996-bc96-6c5ab4a6a6bb" />
 
 #### 사용자 라이프 스타일 위험 표시 (요구사항 코드 : user-product-002)
-<img width="303" alt="스크린샷 2025-07-08 오후 5 45 17" src="https://github.com/user-attachments/assets/1fd50634-05a1-47f0-8ca8-3d02ed556223" />
+<img width="405" alt="스크린샷 2025-07-08 오후 5 53 37" src="https://github.com/user-attachments/assets/669a58fe-b6cf-41c3-a937-a1cb61c9e0af" />
 
 #### 추천 (요구사항 코드 : user-product-003)
-<img width="415" alt="스크린샷 2025-07-08 오후 5 47 41" src="https://github.com/user-attachments/assets/ddedb83a-6d34-47c3-bb35-18ad92b50884" />
+<img width="408" alt="스크린샷 2025-07-08 오후 5 53 48" src="https://github.com/user-attachments/assets/2897e242-7f43-43e0-8ac3-2dbe5a507706" />
+
 
 </details>
