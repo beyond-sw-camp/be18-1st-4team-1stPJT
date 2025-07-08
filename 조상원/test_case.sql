@@ -47,9 +47,16 @@ WHERE user_email = '이메일',
 		AND user_pw = '비밀번호';
 
 -- 즐겨찾기 변경
-UPDATE user_favorites
-SET item_id = '즐겨찾기 후 아이템 아이디'
-WHERE user_email = '이메일' AND user_pw = '비밀번호' AND type = 'product/ingredient';
+UPDATE user_favorites u_f
+		 INNER JOIN users u ON u_f.user_id = u.user_id
+SET item_id = '즐겨찾기할 아이템 아이디'
+WHERE user_email = '이메일' AND user_pw = '비밀번호' AND item_id = '변경 전 즐겨찾기할 아이템 아이디';
+
+SELECT user_name AS '이름',
+		 item_id AS '변경된 즐겨찾기한 대상 아이템 ID',
+		 `type` AS '변경된 즐겨찾기'
+FROM users u INNER JOIN user_favorites u_f ON u.user_id = u_f.user_id
+WHERE user_email = '이메일' AND user_pw = '비밀번호';
 
 -- 성향 변경
 SELECT life_style_id
