@@ -540,9 +540,9 @@ BEGIN
 		, id.`reg_date`
 		, id.`update_date`
 	FROM ingredients AS i
-	INNER JOIN ingredient_diseases AS id
+	LEFT JOIN ingredient_diseases AS id
 		ON i.ingr_id = id.ingr_id
-	INNER JOIN diseases AS d
+	LEFT JOIN diseases AS d
 		ON d.disease_id = id.disease_id
 	WHERE ingr_name LIKE CONCAT('%', in_search, '%');
 END $$
@@ -573,9 +573,9 @@ BEGIN
 		, pri.`reg_date`
 		, pri.`update_date`
 	FROM products AS p
-	INNER JOIN product_ingredients AS pri
+	LEFT JOIN product_ingredients AS pri
 		ON p.product_id = pri.product_id
-	INNER JOIN ingredients AS i
+	LEFT JOIN ingredients AS i
 		ON i.ingr_id = pri.ingr_id
 	WHERE
 		(
@@ -616,9 +616,9 @@ BEGIN
 		, id.`reg_date`
 		, id.`update_date`
 	FROM diseases AS d
-	INNER JOIN ingredient_diseases AS id
+	LEFT JOIN ingredient_diseases AS id
 		ON d.disease_id = id.disease_id
-	INNER JOIN ingredients AS i
+	LEFT JOIN ingredients AS i
 		ON i.ingr_id = id.ingr_id
 	WHERE disease_name LIKE CONCAT('%', in_search, '%');
 END $$
