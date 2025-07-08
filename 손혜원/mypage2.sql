@@ -28,8 +28,10 @@ WHERE user_id = 'input_id';
 
 -- member-007 사용자는 관심 제품(찜하기)을 확인 가능.
 SELECT f.user_id,
-       f.type,	 
-       p.product_name
+	f.type,
+	p.product_name,
+	i.ingr_name
 FROM user_favorites f
 JOIN products p ON f.item_id = p.product_id
+JOIN ingredient i ON f.item_id = i.ingr_id
 WHERE f.user_id = 'input_id';
