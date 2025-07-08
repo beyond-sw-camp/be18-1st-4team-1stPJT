@@ -154,8 +154,10 @@ SELECT user_name AS '이름',
 		 disease_info AS '변경된 질병 정보',
 		 disease_effect AS '변경된 질병 효과'
 FROM users u 
-	  INNER JOIN user_diseases u_d ON u.user_id = u_d.user_id
-	  INNER JOIN diseases d ON d.disease_id = u_d.diseases_id
+	  INNER JOIN user_diseases u_d   
+	  ON u.user_id = u_d.user_id
+	  INNER JOIN diseases d  
+	  ON d.disease_id = u_d.diseases_id
 WHERE user_id = '사용자 ID';
 ```
 
@@ -170,7 +172,8 @@ AND item_id = '변경하고 싶은 즐겨찾기 대상 ID';
 SELECT user_name AS '이름',
 		 item_id AS '변경된 즐겨찾기한 대상 아이템 ID',
 		 `type` AS '변경된 즐겨찾기 대상'
-FROM users u INNER JOIN user_favorites u_f ON u.user_id = u_f.user_id
+FROM users u INNER JOIN user_favorites u_f  
+	     ON u.user_id = u_f.user_id
 WHERE u.user_id = '사용자 ID';
 ```
 
