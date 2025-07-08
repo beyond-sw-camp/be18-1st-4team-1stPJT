@@ -185,10 +185,10 @@ AND life_style_id = '변경하고 싶은 라이프스타일 ID';
 SELECT user_name AS '이름',
 		 life_style_name AS '변경된 라이프스타일'
 FROM users u 
-	  INNER JOIN user_life_styles u_l
-	  ON u.user_id = u_l.user_id
-	  INNER JOIN life_styles l
- 	  ON l.life_style_id = u_l.life_style_id 
+	  INNER JOIN user_life_styles u_l  
+	  ON u.user_id = u_l.user_id  
+	  INNER JOIN life_styles l  
+ 	  ON l.life_style_id = u_l.life_style_id   
 WHERE user_id = '사용자 ID';
 ```
 </details>
