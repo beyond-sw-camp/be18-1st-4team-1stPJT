@@ -533,7 +533,7 @@ WHERE user_name = '홍길동';
 ###### 성향 변경 전
 ![성향 변경 전](https://github.com/user-attachments/assets/13452702-9ba7-46eb-bbcf-bcb819f7a5a8)
 ###### 성향 변경 후
-![성향 변경 후](https://github.com/user-attachments/assets/bdbc7ed1-a6ee-4476-97e4-65a6be7321f6)
+![image](https://github.com/user-attachments/assets/5ada498d-430b-489a-84e5-e86523f665f3)
 
 #### 회원 탈퇴 (요구사항 코드 : member-005)
 ###### 회원 탈퇴 전
