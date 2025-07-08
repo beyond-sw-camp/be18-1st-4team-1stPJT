@@ -56,23 +56,13 @@ FROM users u INNER JOIN user_favorites u_f ON u.user_id = u_f.user_id
 WHERE user_email = '이메일' AND user_pw = '비밀번호';
 
 -- 성향 변경
-SELECT life_style_id
-INTO @new_life_style_id
-FROM life_styles
-WHERE life_style_name = '변경 후 라이프스타일명';
-
-UPDATE users u 
-		 INNER JOIN user_life_styles u_l ON u.user_id = u_l.user_id
-		 INNER JOIN life_styles l_old ON l_old.life_style_id = u_l.life_style_id 
-SET u_l.life_style_id = @new_life_style_id
-WHERE user_email = '이메일' 
-		AND user_pw = '비밀번호'
-  		AND d_old.life_style_name = '변경 전 라이프스타일명';
+UPDATE user_life_styles
+SET life_style_id = '변경할 라이프스타일 ID'
+WHERE user_id = '사용자 ID';
 
 SELECT user_name AS '이름',
 		 life_style_name AS '변경된 라이프스타일'
 FROM users u 
 	  INNER JOIN user_life_styles u_l ON u.user_id = u_l.user_id
 	  INNER JOIN life_styles l ON l.life_style_id = u_l.life_style_id 
-WHERE user_email = '이메일', 
-		AND user_pw = '비밀번호';
+WHERE user_id = '사용자 ID';
