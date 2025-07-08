@@ -107,7 +107,7 @@
 ### 💾SQL
 
 <details>
-	<summary>DML</summary>
+	<summary>DDL</summary>
 
 #### 사용자 테이블
 ```SQL
@@ -321,7 +321,7 @@ CREATE TABLE `user_favorites`(
 
 
 <details>
-	<summary>DDL</summary>
+	<summary>DML</summary>
 
 #### 회원가입 (요구사항 코드: member-001)
 ```SQL
