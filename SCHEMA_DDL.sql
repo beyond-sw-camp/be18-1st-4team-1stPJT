@@ -1,3 +1,19 @@
+CREATE DATABASE disease_management;
+
+USE disease_management;
+
+DROP TABLE IF EXISTS user_diseases;
+DROP TABLE IF EXISTS user_favorites;
+DROP TABLE IF EXISTS product_ingredients;
+DROP TABLE IF EXISTS ingredient_diseases;
+DROP TABLE IF EXISTS life_style_ingredients;
+DROP TABLE IF EXISTS user_life_styles;
+DROP TABLE IF EXISTS users;
+DROP TABLE IF EXISTS products;
+DROP TABLE IF EXISTS ingredients;
+DROP TABLE IF EXISTS diseases;
+DROP TABLE IF EXISTS life_styles;
+
 -- 사용자 테이블
 CREATE TABLE `users`(
 	`user_id` UUID DEFAULT UUID() COMMENT '사용자 ID',
