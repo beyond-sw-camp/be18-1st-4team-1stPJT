@@ -8,11 +8,11 @@ DROP TABLE IF EXISTS product_ingredients;
 DROP TABLE IF EXISTS ingredient_diseases;
 DROP TABLE IF EXISTS life_style_ingredients;
 DROP TABLE IF EXISTS user_life_styles;
-DROP TABLE IF EXISTS users;
 DROP TABLE IF EXISTS products;
 DROP TABLE IF EXISTS ingredients;
 DROP TABLE IF EXISTS diseases;
 DROP TABLE IF EXISTS life_styles;
+DROP TABLE IF EXISTS users;
 
 -- 사용자 테이블
 CREATE TABLE `users`(
@@ -196,5 +196,5 @@ CREATE TABLE `user_favorites`(
 	-- 제약 조건
 	CONSTRAINT PRIMARY KEY (user_favorites_id),
 	CONSTRAINT fk_user_favorites_users_id FOREIGN KEY (user_id) REFERENCES users(user_id),
-	CONSTRAINT ck_user_favorites_type CHECK (`type` IN ('products', 'ingredients', 'diseases'))
+	CONSTRAINT ck_user_favorites_type CHECK (`type` IN ('product', 'ingredient', 'disease'))
 );
