@@ -6,12 +6,11 @@
 	2.1 [💡배경](#배경)  
 	2.2 [🎯서비스 목표](#서비스-목표)  
 3. [📅WBS](#WBS)
-4. [📄프로젝트 기획서](#프로젝트-기획서)
-5. [🎬프로젝트 시나리오](#프로젝트-시나리오)  
-6. [📘요구사항 명세서](#요구사항-명세서)  
-7. [🗃️테이블 명세서](#테이블-명세서)
-8. [📊ERD](#ERD)
-9. [SQL](#SQL)
+4. [🎬프로젝트 시나리오](#프로젝트-시나리오)  
+5. [📘요구사항 명세서](#요구사항-명세서)  
+6. [🗃️테이블 명세서](#테이블-명세서)
+7. [📊ERD](#ERD)
+8. [SQL](#SQL)
 ---
 ### 팀원
 
@@ -54,9 +53,6 @@
 
 ---
 
-### [📄프로젝트 기획서](https://docs.google.com/document/d/1dea6-qKtYOETbKuGAM2aO-TD-QRYQuiLapuRkPCAjp8/edit?usp=sharing)
-
----
 ### 🎬프로젝트 시나리오
 ![sys-flow.png](./image/sys-flow.png)  
 
@@ -76,3 +72,53 @@
 
 ---
 ### SQL
+
+<details>
+	<summary>DML</summary>
+
+#### 사용자 테이블
+```SQL
+CREATE TABLE `users`(
+	`user_id` UUID DEFAULT UUID() COMMENT '사용자 고유 ID',
+	`user_name` VARCHAR(255) NOT NULL COMMENT '사용자 이름',
+	`user_pw` VARCHAR(255) NOT NULL COMMENT '사용자 비밀번호',
+	`user_email` VARCHAR(255) NOT NULL COMMENT '사용자 이메일',
+	`user_nickname` VARCHAR(100) NOT NULL COMMENT '사용자 닉네임', 
+	`user_type` CHAR(20) NOT NULL DEFAULT 'user' COMMENT '사용자 유형(user/manager)',
+	`reg_date` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '가입 일자',
+	`update_date` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '수정 일자',
+	`delete_date` DATETIME COMMENT '탈퇴 일자',
+	`is_deleted` BOOLEAN NOT NULL DEFAULT FALSE COMMENT '탈퇴 여부',
+	
+	-- 제약 조건
+	CONSTRAINT PRIMARY KEY (user_id),
+	CONSTRAINT uq_user_email UNIQUE (user_email),
+	CONSTRAINT uq_user_nickname UNIQUE (user_nickname),
+	CONSTRAINT chk_user_type CHECK (`user_type` IN ('user', 'manager'))
+);
+
+```
+</details>
+
+
+<details>
+	<summary>DDL</summary>
+
+#### 회원가입(요구사항 코드: member-001)
+```SQL
+INSERT INTO users
+(user_id, user_name, user_pw, user_email, user_nickname, reg_date, update_date)
+VALUES (UUID(), '이름', '비밀번호', '이메일', '닉네임', NOW(), NOW());
+```
+
+#### 회원가입(요구사항 코드: member-002)
+```SQL
+SELECT
+	user_email,
+	user_pw
+FROM users
+WHERE user_email = '이메일' 
+	AND user_pw = '비밀번호'
+	AND is_deleted = FALSE;
+```
+</details>
