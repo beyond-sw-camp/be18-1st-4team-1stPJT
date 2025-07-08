@@ -14,7 +14,7 @@
 ### 팀원
 | 김택곤 | 손혜원 | 윤동기 | 임승택 | 조상원 | 조용주 |
 | --- | --- | --- | --- | --- | --- |
-|  <img width="130" alt="스크린샷 2025-07-08 오전 9 51 16" src="https://github.com/user-attachments/assets/ef9c2dd8-56d9-4b2a-bc00-bac16587590c" />   |  <img width="128" alt="스크린샷 2025-07-08 오전 9 51 30" src="https://github.com/user-attachments/assets/b2ecc98e-c8ed-409e-8d43-0585772a1080" /> |  |   |   |     |
+|  <img width="130" alt="스크린샷 2025-07-08 오전 9 51 16" src="https://github.com/user-attachments/assets/ef9c2dd8-56d9-4b2a-bc00-bac16587590c" />   |  <img width="128" alt="스크린샷 2025-07-08 오전 9 51 30" src="https://github.com/user-attachments/assets/b2ecc98e-c8ed-409e-8d43-0585772a1080" /> | <img width="128" alt="스크린샷 2025-07-08 오전 9 51 25" src="https://github.com/user-attachments/assets/c313e8c4-2866-446f-a47b-5743634f98f1" /> |   |   |     |
 
 
 ---
