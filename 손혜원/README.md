@@ -12,6 +12,4 @@
 ![image](https://github.com/user-attachments/assets/d4d972e8-68f7-41f6-b073-dd6ca8e1632a)
 
 ## ERD
-![DemoERD](https://github.com/user-attachments/assets/141a1a67-e2df-45ad-afa4-c811b057ee32)
-
-
+![DemoERD](https://github.com/user-attachments/assets/f3b787f1-2396-431b-b778-a17a7e3c22af)
