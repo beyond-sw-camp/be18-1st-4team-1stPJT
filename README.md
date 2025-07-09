@@ -555,10 +555,10 @@ WHERE user_name = '홍길동';
 <img width="460" alt="스크린샷 2025-07-08 오후 5 53 27" src="https://github.com/user-attachments/assets/09dde48c-6aac-4996-bc96-6c5ab4a6a6bb" />
 
 #### 사용자 라이프 스타일 위험 표시 (요구사항 코드 : user-product-002)
-<img width="405" alt="스크린샷 2025-07-08 오후 5 53 37" src="https://github.com/user-attachments/assets/669a58fe-b6cf-41c3-a937-a1cb61c9e0af" />
+<img width="396" alt="스크린샷 2025-07-09 오전 9 47 25" src="https://github.com/user-attachments/assets/31615022-61e9-4f04-8f7b-40f8618da745" />
 
 #### 추천 (요구사항 코드 : user-product-003)
-<img width="408" alt="스크린샷 2025-07-08 오후 5 53 48" src="https://github.com/user-attachments/assets/2897e242-7f43-43e0-8ac3-2dbe5a507706" />
+<img width="412" alt="스크린샷 2025-07-09 오전 9 47 34" src="https://github.com/user-attachments/assets/dd01e309-94ec-4901-9d17-5bd46851a812" />
 
 #### 성분 검색 (요구사항 코드 : ingredient-001,002,003,004)
 ![ingredient-1,2,3,4](https://github.com/user-attachments/assets/ba6a97c5-11ea-4b12-a6c1-05b3ab4e7c67)
