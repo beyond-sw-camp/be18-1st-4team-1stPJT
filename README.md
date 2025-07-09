@@ -549,6 +549,253 @@ LEFT JOIN users u
 	ON u.user_id = uls.user_id
 WHERE user_name = '홍길동';
 ```
+
+#### 성분 추가 (요구사항 코드 : admin-001)
+```SQL
+INSERT INTO ingredients(
+	ingr_name,
+	`description`,
+	functionality, 
+	`usage`,
+	potential_risks, 
+	safety_rating, 
+	reference_source,
+	enrolled_id,
+	reg_date,
+	update_date)
+VALUES (
+	'테스트 성분', 
+	'테스트 성분 설명.', 
+	'테스트 성분 기능', 
+	'테스트 성분 용도', 
+	'테스트 성분 잠재적 위험성', 
+	'테스트 성분 위험 등급EWG 3', 
+	'테스트url : https://www.ewg.org', 
+	@yoondk_id,
+	CURRENT_TIMESTAMP,
+	CURRENT_TIMESTAMP);
+```
+
+#### 성분 삭제 (요구사항 코드 : admin-002)
+```SQL
+DELETE 
+FROM ingredients
+WHERE ingr_id = 70;
+```
+
+#### 성분 업데이트 (요구사항 코드 : admin-003)
+```SQL
+UPDATE ingredients
+SET ingr_name = '설탕탕',
+	 `description` = '설탕보다 더 달아',
+	 enrolled_id = @yoondk_id,
+	 update_date = CURRENT_TIMESTAMP
+WHERE ingr_id = 72;
+```
+
+#### 제품 추가 (요구사항 코드 : admin-004)
+```SQL
+INSERT INTO products (
+	product_name, 
+	brand_name, 
+	category,
+	img_url, 
+	enrolled_id, 
+	reg_date, 
+	update_date) 
+VALUES (
+	'테스트 제품 이름', 
+	'테스트 제품 브랜드', 
+	'테스트 제품 카테고리', 
+	'테스트 url : https://pepsi.com/lime.jpg', 
+	@yoondk_id,
+	CURRENT_TIMESTAMP,
+	CURRENT_TIMESTAMP);
+```
+
+#### 제품 삭제 (요구사항 코드 : admin-005)
+```SQL
+DELETE 
+FROM products
+WHERE product_id = 280;
+```
+
+#### 제품 업데이트 (요구사항 코드 : admin-006)
+```SQL
+UPDATE products
+SET product_name = '펩시 진짜 라임',
+	 brand_name = 'Pepssssssi',
+	 enrolled_id = @yoondk_id,
+	 update_date = CURRENT_TIMESTAMP
+WHERE product_id = 281;
+```
+
+#### 질병 추가 (요구사항 코드 : admin-007)
+```SQL
+INSERT INTO diseases (
+	disease_name, 
+	disease_info, 
+	disease_effect, 
+	enrolled_id,
+	reg_date,
+	update_date) 
+VALUES (
+	'테스트 질병', 
+	'테스트 질병 정보', 
+	'테스트 질병 증상', 
+	@yoondk_id,
+	CURRENT_TIMESTAMP,
+	CURRENT_TIMESTAMP);
+```
+
+#### 질병 삭제 (요구사항 코드 : admin-008)
+```SQL
+DELETE 
+FROM diseases
+WHERE disease_id = 90;
+```
+
+#### 질병 업데이트 (요구사항 코드 : admin-009)
+```SQL
+UPDATE diseases
+SET disease_name = '아토피',
+	 disease_effect = '엄청 가려움',
+	 enrolled_id = @yoondk_id,
+	 update_date = CURRENT_TIMESTAMP
+WHERE disease_id = 91;
+```
+
+#### 라이프 스타일 추가 (요구사항 코드 : admin-010)
+```SQL
+INSERT INTO life_styles (
+	life_style_name, 
+	enrolled_id,
+	reg_date,
+	update_date) 
+VALUES (
+	'테스트 라스', 
+	@chosw_id,
+	CURRENT_TIMESTAMP,
+	CURRENT_TIMESTAMP);
+```
+
+#### 라이프 스타일 삭제 (요구사항 코드 : admin-011)
+```SQL
+DELETE 
+FROM life_styles
+WHERE life_style_id = 14;
+```
+
+#### 라이프 스타일 업데이트 (요구사항 코드 : admin-012)
+```SQL
+UPDATE life_styles
+SET life_style_name = '슈퍼비건',
+	 enrolled_id = @yoondk_id,
+	 update_date = CURRENT_TIMESTAMP
+WHERE life_style_id = 15;
+
+```
+
+#### 성분 제품 관계 추가 (요구사항 코드 : admin-013)
+```SQL
+INSERT INTO product_ingredients (
+	product_id, 
+	ingr_id, 
+	enrolled_id) 
+VALUES (
+	16,
+	16,
+	@yoondk_id);
+```
+
+#### 성분 제품 관계 삭제 (요구사항 코드 : admin-014)
+```SQL
+DELETE 
+FROM product_ingredients
+WHERE product_ingredients_id = 139;
+```
+
+#### 성분 제품 관계 업데이트 (요구사항 코드 : admin-015)
+```SQL
+UPDATE product_ingredients
+SET product_id = 10,
+	 ingr_id = 5,
+	 enrolled_id = @yoondk_id,
+	 update_date = CURRENT_TIMESTAMP
+WHERE product_ingredients_id = 140;
+```
+
+#### 성분 질병 관계 추가 (요구사항 코드 : admin-016)
+```SQL
+INSERT INTO ingredient_diseases (
+	ingr_id, 
+	disease_id, 
+	`description`, 
+	reference_source, 
+	`type`, 
+	enrolled_id)
+VALUES (
+	17, 
+	17, 
+	'테스트 설명1', 
+	'테스트 url : https://ncbi.nlm.nih.gov/pubmed/24640902', 
+	'good',
+	@yoondk_id);
+```
+
+#### 성분 질병 관계 삭제 (요구사항 코드 : admin-017)
+```SQL
+DELETE 
+FROM ingredient_diseases
+WHERE ingredient_diseases_id = 60;
+
+```
+
+#### 성분 질병 관계 업데이트 (요구사항 코드 : admin-018)
+```SQL
+UPDATE ingredient_diseases
+SET ingr_id = 17,
+	 disease_id = 17,
+	 `description` = '새로운 설명 추가',
+	 reference_source = '출처 url 수정',
+	 enrolled_id = @yoondk_id,
+	 update_date = CURRENT_TIMESTAMP
+WHERE ingredient_diseases_id = 60;
+
+```
+
+#### 라이프 스타일 질병 관계 추가 (요구사항 코드 : admin-019)
+```SQL
+INSERT INTO life_style_ingredients (
+	life_style_id, 
+	ingr_id, 
+	`type`, 
+	enrolled_id)
+VALUES (
+	2, 
+	2, 
+	'good', 
+	@chosw_id);
+```
+
+#### 라이프 스타일 질병 관계 삭제 (요구사항 코드 : admin-020)
+```SQL
+DELETE 
+FROM life_style_ingredients
+WHERE life_style_ingredients_id = 75;
+```
+
+#### 라이프 스타일 질병 관계 업데이트 (요구사항 코드 : admin-021)
+```SQL
+UPDATE life_style_ingredients
+SET life_style_id = 2,
+	 ingr_id = 2,
+	 `type` = 'bad' ,
+	 enrolled_id = @yoondk_id,
+	 update_date = CURRENT_TIMESTAMP
+WHERE life_style_ingredients_id = 75;
+```
+
 </details>
 
 <details>
