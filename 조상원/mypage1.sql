@@ -42,7 +42,7 @@ SELECT user_name AS '이름',
 FROM users u 
 	  INNER JOIN user_diseases u_d ON u.user_id = u_d.user_id
 	  INNER JOIN diseases d ON d.disease_id = u_d.diseases_id
-WHERE user_id = '사용자 ID';
+WHERE u.user_id = '사용자 ID';
 
 -- 즐겨찾기 변경
 UPDATE user_favorites
@@ -67,4 +67,4 @@ SELECT user_name AS '이름',
 FROM users u 
 	  INNER JOIN user_life_styles u_l ON u.user_id = u_l.user_id
 	  INNER JOIN life_styles l ON l.life_style_id = u_l.life_style_id 
-WHERE user_id = '사용자 ID';
+WHERE u.user_id = '사용자 ID';
