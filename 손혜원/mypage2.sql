@@ -1,19 +1,8 @@
 -- member-005 회원 정보와 관련된 데이터들 삭제(사용자 알러지 정보, 즐겨찾기, 성향 등)
-DELETE 
-FROM user_diseases
-WHERE user_id = 'input_id';
-
-DELETE 
-FROM user_favorites
-WHERE user_id = 'input_id';
-
-DELETE
-FROM user_life_styles
-WHERE user_id = 'input_id';
-
-DELETE
-FROM users
-WHERE user_id = 'input_id';
+UPDATE `users`
+SET `is_deleted` = TRUE,
+    `delete_date` = CURRENT_TIMESTAMP
+WHERE `user_id` = 'input_id' AND `is_deleted` = FALSE;
 
 -- member-006 사용자는 자신의 등록 정보(알레르기, 건강 목표 등)를 한눈에 확인 가능.
 SELECT u.user_id,
