@@ -519,9 +519,9 @@ WHERE user_name = '홍길동';
 
 #### 사용자 라이프 스타일 위험 표시 (요구사항 코드 : user-product-002)
 ```SQL
-SELECT lsi.ingr_id,
- 	   life_style_name, 
- 	   	 `type`
+SELECT life_style_name,
+	   ingr_name,
+	    `type`
 from life_styles l
 LEFT JOIN life_style_ingredients lsi 
 	ON lsi.life_style_id = l.life_style_id
@@ -529,6 +529,8 @@ LEFT JOIN user_life_styles uls
 	ON uls.life_style_id = l.life_style_id
 LEFT JOIN users u 
 	ON u.user_id = uls.user_id
+LEFT JOIN ingredients i 
+	ON i.ingr_id = lsi.ingr_id
 WHERE user_name = '홍길동';
 ```
 
@@ -547,7 +549,8 @@ LEFT JOIN user_life_styles uls
 	ON uls.life_style_id = l.life_style_id
 LEFT JOIN users u 
 	ON u.user_id = uls.user_id
-WHERE user_name = '홍길동';
+WHERE user_name = '홍길동'
+	AND `type` = 'good';
 ```
 
 #### 성분 추가 (요구사항 코드 : admin-001)
