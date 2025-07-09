@@ -518,7 +518,7 @@ WHERE user_name = '홍길동';
 
 ##### 질병 정보 변경
 ###### 질병 정보 변경 전
-![질병 정보 변경 전](https://github.com/user-attachments/assets/4bfb5882-2556-4aa3-97f2-3a92d14155f9)
+![image](https://github.com/user-attachments/assets/e2e2e570-7b44-45af-a23a-bf21206631bb)
 ###### 질병 정보 변경 후
 ![질병 정보 변경 후](https://github.com/user-attachments/assets/d4c7b926-22ca-43df-b877-bebe3d25fcb6)
 
