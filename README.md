@@ -1,4 +1,4 @@
-# ![header](https://capsule-render.vercel.app/api?type=waving&color=auto&height=300&section=header&text=Ingredient_CheckIT&fontSize=90)
+![ingredient-1,2,3,4](https://github.com/user-attachments/assets/079d5645-63ef-4a6b-a191-2909d78c7d38)# ![header](https://capsule-render.vercel.app/api?type=waving&color=auto&height=300&section=header&text=Ingredient_CheckIT&fontSize=90)
 
 ## 👀목차
 1. [👥팀원](#팀원)
@@ -559,6 +559,12 @@ WHERE user_name = '홍길동';
 
 #### 추천 (요구사항 코드 : user-product-003)
 <img width="408" alt="스크린샷 2025-07-08 오후 5 53 48" src="https://github.com/user-attachments/assets/2897e242-7f43-43e0-8ac3-2dbe5a507706" />
+
+#### 성분 검색 (요구사항 코드 : ingredient-001,002,003,004)
+![ingredient-1,2,3,4](https://github.com/user-attachments/assets/ba6a97c5-11ea-4b12-a6c1-05b3ab4e7c67)
+
+
+
 
 
 </details>
