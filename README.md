@@ -437,6 +437,57 @@ INNER JOIN diseases d
 	ON f.item_id = d.disease_id
 WHERE f.user_id = 'input_id';
 ```
+#### 성분 검색 (요구사항 코드 : ingredient-001,002,003,004)
+```SQL
+SELECT ingr_name,
+		 `description`,
+		 functionality,
+		 `usage`, 	
+		 potential_risks, 
+		 safety_rating,
+		 reference_source
+FROM ingredients
+WHERE ingr_name = '살리실산';
+```
+
+#### 제품 검색 (요구사항 코드 : product-001,002)
+```SQL
+SELECT p.product_name,
+		 p.brand_name,
+		 p.category, 
+		 p.img_url
+FROM products AS p
+WHERE p.product_name = '펩시 라임';
+```
+
+```SQL
+SELECT p.brand_name,
+		 p.product_name,
+		 p.category, 
+		 p.img_url
+FROM products AS p
+WHERE p.brand_name = 'CJ'
+```
+#### 제품 상세 검색 (요구사항 코드 : product-003)
+```SQL
+SELECT p.product_name,
+		 p.brand_name,
+		 p.category,
+		 p.img_url,
+		 d.disease_name,
+		 i.ingr_name,
+		 i_d.type
+FROM products AS p
+LEFT JOIN product_ingredients AS p_i
+	ON p.product_id = p_i.product_id
+LEFT JOIN ingredients AS i 
+	ON p_i.ingr_id = i.ingr_id
+LEFT JOIN ingredient_diseases AS i_d
+	ON i_d.ingr_id = i.ingr_id
+LEFT JOIN diseases AS d
+	ON i_d.disease_id = d.disease_id
+WHERE p.product_name = '오레오 쿠키' AND i_d.type = 'bad';
+```
 
 #### 질환 검색 (요구사항 코드 : disease-001,002,003)
 ```SQL
