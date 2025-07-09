@@ -318,8 +318,8 @@ WHERE user_email = '이메일'
 UPDATE users 
 SET user_email = '변경할 이메일' 
 WHERE user_email = '이메일' 
-      AND user_pw = '비밀번호' 
-      AND is_deleted = FALSE;
+	AND user_pw = '비밀번호' 
+	AND is_deleted = FALSE;
 ```
 
 ##### 비밀번호 변경
@@ -327,8 +327,8 @@ WHERE user_email = '이메일'
 UPDATE users 
 SET user_pw = '변경할 비밀번호' 
 WHERE user_email = '이메일' 
-      AND user_pw = '비밀번호' 
-      AND is_deleted = FALSE;
+	AND user_pw = '비밀번호' 
+	AND is_deleted = FALSE;
 ```
 
 ##### 질병 정보 변경
@@ -336,7 +336,7 @@ WHERE user_email = '이메일'
 UPDATE user_diseases
 SET disease_id = '변경할 질병 ID' 
 WHERE user_id = '사용자 ID'
-      AND disease_id = '변경하고 싶은 질병 ID';
+	AND disease_id = '변경하고 싶은 질병 ID';
 ```
 ```SQL
 SELECT user_name AS '이름',
@@ -345,9 +345,9 @@ SELECT user_name AS '이름',
        disease_effect AS '변경된 질병 효과'
 FROM users u  
 INNER JOIN user_diseases u_d   
-ON u.user_id = u_d.user_id
+	ON u.user_id = u_d.user_id
 INNER JOIN diseases d  
-ON d.disease_id = u_d.diseases_id
+	ON d.disease_id = u_d.diseases_id
 WHERE u.user_id = '사용자 ID';
 ```
 
@@ -356,7 +356,7 @@ WHERE u.user_id = '사용자 ID';
 UPDATE user_favorites
 SET item_id = '변경할 즐겨찾기 대상 ID'
 WHERE user_id = '사용자 ID'
-      AND item_id = '변경하고 싶은 즐겨찾기 대상 ID';
+	AND item_id = '변경하고 싶은 즐겨찾기 대상 ID';
 ```
 ```SQL
 SELECT user_name AS '이름',
@@ -364,7 +364,7 @@ SELECT user_name AS '이름',
        `type` AS '변경된 즐겨찾기 대상'
 FROM users u
 INNER JOIN user_favorites u_f  
-ON u.user_id = u_f.user_id
+	ON u.user_id = u_f.user_id
 WHERE u.user_id = '사용자 ID';
 ```
 
@@ -380,9 +380,9 @@ SELECT user_name AS '이름',
        life_style_name AS '변경된 라이프스타일'
 FROM users u 
 INNER JOIN user_life_styles u_l  
-ON u.user_id = u_l.user_id  
+	ON u.user_id = u_l.user_id  
 INNER JOIN life_styles l  
-ON l.life_style_id = u_l.life_style_id   
+	ON l.life_style_id = u_l.life_style_id   
 WHERE u.user_id = '사용자 ID';
 ```
 
@@ -440,12 +440,12 @@ WHERE f.user_id = 'input_id';
 #### 성분 검색 (요구사항 코드 : ingredient-001,002,003,004)
 ```SQL
 SELECT ingr_name,
-		 `description`,
-		 functionality,
-		 `usage`, 	
-		 potential_risks, 
-		 safety_rating,
-		 reference_source
+       `description`,
+       functionality,
+       `usage`, 	
+       potential_risks, 
+       safety_rating,
+       reference_source
 FROM ingredients
 WHERE ingr_name = '살리실산';
 ```
@@ -453,30 +453,30 @@ WHERE ingr_name = '살리실산';
 #### 제품 검색 (요구사항 코드 : product-001,002)
 ```SQL
 SELECT p.product_name,
-		 p.brand_name,
-		 p.category, 
-		 p.img_url
+       p.brand_name,
+       p.category, 
+       p.img_url
 FROM products AS p
 WHERE p.product_name = '펩시 라임';
 ```
 
 ```SQL
 SELECT p.brand_name,
-		 p.product_name,
-		 p.category, 
-		 p.img_url
+       p.product_name,
+       p.category, 
+       p.img_url
 FROM products AS p
 WHERE p.brand_name = 'CJ'
 ```
 #### 제품 상세 검색 (요구사항 코드 : product-003)
 ```SQL
 SELECT p.product_name,
-		 p.brand_name,
-		 p.category,
-		 p.img_url,
-		 d.disease_name,
-		 i.ingr_name,
-		 i_d.type
+       p.brand_name,
+       p.category,
+       p.img_url,
+       d.disease_name,
+       i.ingr_name,
+       i_d.type
 FROM products AS p
 LEFT JOIN product_ingredients AS p_i
 	ON p.product_id = p_i.product_id
@@ -519,9 +519,9 @@ WHERE user_name = '홍길동';
 
 #### 사용자 라이프 스타일 위험 표시 (요구사항 코드 : user-product-002)
 ```SQL
-SELECT life_style_name,
-	   ingr_name,
-	    `type`
+SELECT l.life_style_name,
+	   i.ingr_name,
+	    lsi.`type`
 from life_styles l
 LEFT JOIN life_style_ingredients lsi 
 	ON lsi.life_style_id = l.life_style_id
@@ -539,7 +539,7 @@ WHERE user_name = '홍길동';
 SELECT lsi.ingr_id,
 	   l.life_style_name,
 	   i.ingr_name, 
-	    `type` 
+	    lsi.`type` 
 FROM life_styles l
 LEFT JOIN life_style_ingredients lsi 
 	ON lsi.life_style_id = l.life_style_id
@@ -550,7 +550,7 @@ LEFT JOIN user_life_styles uls
 LEFT JOIN users u 
 	ON u.user_id = uls.user_id
 WHERE user_name = '홍길동'
-	AND `type` = 'good';
+	AND lsi.`type` = 'good';
 ```
 
 #### 성분 추가 (요구사항 코드 : admin-001)
@@ -590,9 +590,9 @@ WHERE ingr_id = 70;
 ```SQL
 UPDATE ingredients
 SET ingr_name = '설탕탕',
-	 `description` = '설탕보다 더 달아',
-	 enrolled_id = @yoondk_id,
-	 update_date = CURRENT_TIMESTAMP
+	`description` = '설탕보다 더 달아',
+	enrolled_id = @yoondk_id,
+	update_date = CURRENT_TIMESTAMP
 WHERE ingr_id = 72;
 ```
 
@@ -627,9 +627,9 @@ WHERE product_id = 280;
 ```SQL
 UPDATE products
 SET product_name = '펩시 진짜 라임',
-	 brand_name = 'Pepssssssi',
-	 enrolled_id = @yoondk_id,
-	 update_date = CURRENT_TIMESTAMP
+	brand_name = 'Pepssssssi',
+	enrolled_id = @yoondk_id,
+	update_date = CURRENT_TIMESTAMP
 WHERE product_id = 281;
 ```
 
@@ -693,8 +693,8 @@ WHERE life_style_id = 14;
 ```SQL
 UPDATE life_styles
 SET life_style_name = '슈퍼비건',
-	 enrolled_id = @yoondk_id,
-	 update_date = CURRENT_TIMESTAMP
+	enrolled_id = @yoondk_id,
+	update_date = CURRENT_TIMESTAMP
 WHERE life_style_id = 15;
 
 ```
@@ -722,9 +722,9 @@ WHERE product_ingredients_id = 139;
 ```SQL
 UPDATE product_ingredients
 SET product_id = 10,
-	 ingr_id = 5,
-	 enrolled_id = @yoondk_id,
-	 update_date = CURRENT_TIMESTAMP
+	ingr_id = 5,
+	enrolled_id = @yoondk_id,
+	update_date = CURRENT_TIMESTAMP
 WHERE product_ingredients_id = 140;
 ```
 
@@ -758,11 +758,11 @@ WHERE ingredient_diseases_id = 60;
 ```SQL
 UPDATE ingredient_diseases
 SET ingr_id = 17,
-	 disease_id = 17,
-	 `description` = '새로운 설명 추가',
-	 reference_source = '출처 url 수정',
-	 enrolled_id = @yoondk_id,
-	 update_date = CURRENT_TIMESTAMP
+	disease_id = 17,
+	`description` = '새로운 설명 추가',
+	reference_source = '출처 url 수정',
+	enrolled_id = @yoondk_id,
+	update_date = CURRENT_TIMESTAMP
 WHERE ingredient_diseases_id = 60;
 
 ```
