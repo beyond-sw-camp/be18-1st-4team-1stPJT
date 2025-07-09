@@ -24,30 +24,22 @@ WHERE user_email = '이메일'
 UPDATE users 
 SET user_email = '변경할 이메일' 
 WHERE user_email = '이메일' 
-	AND user_pw = '비밀번호'
-	AND is_deleted = FALSE;
+      AND user_pw = '비밀번호' 
+      AND is_deleted = FALSE;
 
 -- 비밀번호 변경
 UPDATE users 
 SET user_pw = '변경할 비밀번호' 
 WHERE user_email = '이메일' 
-	AND user_pw = '비밀번호' 
-	AND is_deleted = FALSE;
+      AND user_pw = '비밀번호' 
+      AND is_deleted = FALSE;
 
--- 질병 정보 변경(수정 필요)
-SELECT disease_id
-INTO @new_disease_id
-FROM diseases
-WHERE disease_name = '변경 후 질병명';
+-- 질병 정보 변경
+UPDATE user_diseases
+SET disease_id = '변경할 질병 ID' 
+WHERE user_id = '사용자 ID'
+AND disease_id = '변경하고 싶은 질병 ID';
 
-UPDATE users u 
-		 INNER JOIN user_diseases u_d ON u.user_id = u_d.user_id
-		 INNER JOIN diseases d_old ON d_old.disease_id = u_d.diseases_id
-SET u_d.diseases_id = @new_disease_id
-WHERE user_email = '이메일' 
-		AND user_pw = '비밀번호'
-  		AND d_old.disease_name = '변경전 질병명';
-  		
 SELECT user_name AS '이름',
 		 disease_name AS '변경된 질병명',
 		 disease_info AS '변경된 질병 정보',
@@ -55,43 +47,32 @@ SELECT user_name AS '이름',
 FROM users u 
 	  INNER JOIN user_diseases u_d ON u.user_id = u_d.user_id
 	  INNER JOIN diseases d ON d.disease_id = u_d.diseases_id
-WHERE user_email = '이메일', 
-		AND user_pw = '비밀번호';
+WHERE u.user_id = '사용자 ID';
 
 -- 즐겨찾기 변경
-UPDATE user_favorites u_f
-		 INNER JOIN users u ON u_f.user_id = u.user_id
-SET item_id = '즐겨찾기할 아이템 아이디'
-WHERE user_email = '이메일' AND user_pw = '비밀번호' AND item_id = '변경 전 즐겨찾기할 아이템 아이디';
+UPDATE user_favorites
+SET item_id = '변경할 즐겨찾기 대상 ID'
+WHERE user_id = '사용자 ID'
+AND item_id = '변경하고 싶은 즐겨찾기 대상 ID';
 
 SELECT user_name AS '이름',
 		 item_id AS '변경된 즐겨찾기한 대상 아이템 ID',
-		 `type` AS '변경된 즐겨찾기'
+		 `type` AS '변경된 즐겨찾기 대상'
 FROM users u INNER JOIN user_favorites u_f ON u.user_id = u_f.user_id
-WHERE user_email = '이메일' AND user_pw = '비밀번호';
+WHERE u.user_id = '사용자 ID';
 
 -- 성향 변경
-SELECT life_style_id
-INTO @new_life_style_id
-FROM life_styles
-WHERE life_style_name = '변경 후 라이프스타일명';
-
-UPDATE users u 
-		 INNER JOIN user_life_styles u_l ON u.user_id = u_l.user_id
-		 INNER JOIN life_styles l_old ON l_old.life_style_id = u_l.life_style_id 
-SET u_l.life_style_id = @new_life_style_id
-WHERE user_email = '이메일' 
-		AND user_pw = '비밀번호'
-  		AND d_old.life_style_name = '변경 전 라이프스타일명';
+UPDATE user_life_styles
+SET life_style_id = '변경할 라이프스타일 ID'
+WHERE user_id = '사용자 ID'
+AND life_style_id = '변경하고 싶은 라이프스타일 ID';
 
 SELECT user_name AS '이름',
 		 life_style_name AS '변경된 라이프스타일'
 FROM users u 
 	  INNER JOIN user_life_styles u_l ON u.user_id = u_l.user_id
 	  INNER JOIN life_styles l ON l.life_style_id = u_l.life_style_id 
-WHERE user_email = '이메일', 
-		AND user_pw = '비밀번호';
-		
+WHERE u.user_id = '사용자 ID';
 								
 -- 회원 탈퇴 member-005
 UPDATE `users`
