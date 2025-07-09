@@ -548,6 +548,17 @@ WHERE user_name = '홍길동';
 #### 자신의 관심 상품 / 재료 / 질병 조회 (요구사항 코드 : member-007)
 ![image](https://github.com/user-attachments/assets/2b669296-0c59-4891-ad8a-46799f09c824)
 
+#### 성분 검색 (요구사항 코드 : ingredient-001,002,003,004)
+![ingredient-1,2,3,4](https://github.com/user-attachments/assets/ba6a97c5-11ea-4b12-a6c1-05b3ab4e7c67)
+
+#### 제품 검색 (요구사항 코드 : product-001,002)
+![product-002](https://github.com/user-attachments/assets/1885c52b-6ac6-4f25-9f9d-19a8a1c1cc52)
+
+![product-002-2](https://github.com/user-attachments/assets/15b09879-1c61-4479-ae74-cf7db5c60996)
+
+#### 제품 상세 검색 (요구사항 코드 : product-003)
+![product-003](https://github.com/user-attachments/assets/6caee963-12d8-4169-9a32-03eaceb40f0b)
+
 #### 질환 검색 (요구사항 코드 : disease-001,002,003)
 <img width="720" alt="스크린샷 2025-07-08 오후 5 53 07" src="https://github.com/user-attachments/assets/4af3cb8b-b322-496f-823d-4996e0d39cf6" />
 
@@ -559,17 +570,6 @@ WHERE user_name = '홍길동';
 
 #### 추천 (요구사항 코드 : user-product-003)
 <img width="412" alt="스크린샷 2025-07-09 오전 9 47 34" src="https://github.com/user-attachments/assets/dd01e309-94ec-4901-9d17-5bd46851a812" />
-
-#### 성분 검색 (요구사항 코드 : ingredient-001,002,003,004)
-![ingredient-1,2,3,4](https://github.com/user-attachments/assets/ba6a97c5-11ea-4b12-a6c1-05b3ab4e7c67)
-
-#### 제품 검색 (요구사항 코드 : product-001,002)
-![product-002](https://github.com/user-attachments/assets/1885c52b-6ac6-4f25-9f9d-19a8a1c1cc52)
-
-![product-002-2](https://github.com/user-attachments/assets/15b09879-1c61-4479-ae74-cf7db5c60996)
-
-#### 제품 상세 검색 (요구사항 코드 : product-003)
-![product-003](https://github.com/user-attachments/assets/6caee963-12d8-4169-9a32-03eaceb40f0b)
 
 #### 성분 추가 (요구사항 코드 : admin-001)
 ![admin-001](https://github.com/user-attachments/assets/468f5f26-eace-4533-b8a5-75a223ff409f)
