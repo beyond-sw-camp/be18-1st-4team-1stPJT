@@ -1,4 +1,4 @@
-![ingredient-1,2,3,4](https://github.com/user-attachments/assets/079d5645-63ef-4a6b-a191-2909d78c7d38)# ![header](https://capsule-render.vercel.app/api?type=waving&color=auto&height=300&section=header&text=Ingredient_CheckIT&fontSize=90)
+# ![header](https://capsule-render.vercel.app/api?type=waving&color=auto&height=300&section=header&text=Ingredient_CheckIT&fontSize=90)
 
 ## 👀목차
 1. [👥팀원](#팀원)
